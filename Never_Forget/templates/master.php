@@ -20,9 +20,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
 
 </head>
 <body>
-    <nav class="nav-top navbar navbar-dark bg-primary">
-    
-    </nav>
         
     <div class="container col-11 mt-4">
         

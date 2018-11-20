@@ -21,7 +21,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
 </head>
 <body>
     <nav class="nav-top navbar navbar-dark bg-primary">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+    
     </nav>
         
     <div class="container col-11 mt-4">

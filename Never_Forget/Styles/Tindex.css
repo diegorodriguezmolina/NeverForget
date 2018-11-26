@@ -1,0 +1,20 @@
+    
+html, body{
+
+    background-image: url("../images/wallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}   
+    
+    
+.container-fluid {
+    	
+    display: flex; 
+    justify-content: center;	
+}
+
+#Title{
+	font-size: 90px;
+	margin-bottom: 60px;
+}

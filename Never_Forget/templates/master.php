@@ -11,27 +11,28 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
         <?php startblock('principal') ?>
         <?php endblock() ?>
     </title>
-    <link rel="stylesheet" href="css/bootstraplux.css">
-    <link rel="stylesheet" href="/NEVER_FORGET/Styles/STemplate.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="Styles/STemplate.css">
+   
 
-    <script src="/NEVER_FORGET/js/jquery-3.3.1.min.js"></script>
-    <script src="/NEVER_FORGET/js/popper.min.js"></script>
-    <script src="/NEVER_FORGET/js/bootstraplux.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
         
     <div class="container col-11 mt-4">
         
-        <nav class="nav-center navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navSize navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Never Forget</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">About as</a>
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">About as</a>
                 </div>
             </div>
         </nav>

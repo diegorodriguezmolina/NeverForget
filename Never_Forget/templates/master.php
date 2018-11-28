@@ -1,5 +1,5 @@
 <?php 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
-        <?php startblock('principal') ?>
+        <?php startblock('title') ?>
         <?php endblock() ?>
     </title>
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -33,6 +33,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#">About as</a>
+                    <a class="navbar-brand float-right" href="#">
+                        <img src="images/usuario.png" width="30" height="30" alt="">
+                    </a>
                 </div>
             </div>
         </nav>
@@ -41,6 +44,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
     
     <?php startblock('principal') ?>
     <?php endblock() ?>
-
+    
+    <footer class="footer bg-dark">
+      <div class="container">
+        <span class="text-white">Place sticky footer content here.</span>
+      </div>
+    </footer>
 </body>
 </html>

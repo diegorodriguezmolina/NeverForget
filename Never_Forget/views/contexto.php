@@ -4,10 +4,10 @@
     <div class="col-sm-6 float-left">
         <div class="card mt-5 bg-transparent">
             <div class="card-header">
-                <h1 class="colorSecundario">Enero de 1938</h1>
+                <h1 class="colorSecundario titulo">Enero de 1938</h1>
             </div>
             <div class="card-body">
-                <p class="text-white">
+                <p id="text" class="text-white fuente">
                     España se encuentra en plena Guerra Civil entre nacionalistas y republicanos
                     El bando republicano, está formado por el Gobierno, junto con sindicatos, comunistas,
                     anarquistas, obreros y campesinos. 
@@ -32,7 +32,7 @@
     <div class="container col-sm-6 float-left imagenLateral">
        
             <img class="card-img-top" src="../assets/img/barcelona.jpg" alt="Card image cap">
-            <a href="#" class="btn btn-danger float-right mt-5 mr-3">Continue</a>
+            <a href="#" class="btn-lg btn-danger float-right mt-5 mr-3">Continue</a>
     </div>
     
     

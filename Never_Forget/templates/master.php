@@ -1,5 +1,5 @@
 <?php 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +11,13 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/BD/librerias/ti.php";
         <?php startblock('principal') ?>
         <?php endblock() ?>
     </title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="Styles/STemplate.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../styles/STemplate.css">
    
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </head>
 <body>

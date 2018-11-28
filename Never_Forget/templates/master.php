@@ -21,6 +21,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
 
 </head>
 <body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
         
     <div class="container col-11 mt-4">
         

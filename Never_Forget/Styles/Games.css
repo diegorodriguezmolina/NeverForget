@@ -1,0 +1,9 @@
+body{
+    background-image: url(../assets/img/background.jpg);
+}
+.colorSecundario{
+    color: #ee2b47;
+}
+.imagenLateral{
+    margin-top: 10%;
+}

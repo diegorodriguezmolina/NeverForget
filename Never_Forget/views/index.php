@@ -1,10 +1,9 @@
 <?php include "../templates/master.php" ?>
 <?php startblock('principal') ?>
 
-    <head>
+    <?php startblock('head') ?>
         <link rel="stylesheet" href="../Styles/Tindex.css">
-   
-    </head>
+    <?php endblock() ?>
 
         <video autoplay muted loop id="myVideo">
             <source src="../assets/videos/videoIndex.mp4" type="video/mp4">

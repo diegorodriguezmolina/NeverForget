@@ -6,14 +6,17 @@
    
     </head>
 
- 
+        <video autoplay muted loop id="myVideo">
+            <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
 
         <div class="container-fluid h-100"> 
     		<div class="row w-100 align-items-center justify-content-center">
     			<div class="col text-center">
-                    <h1 id="Title">NEVER FORGET</h1>
-                    <button type="button" class="btn-lg btn-outline-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">SING IN</button>
-                    <button type="button" class="btn-lg btn-outline-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">REGISTER</button>
+                    <h1 id="Title" class="text-white">NEVER FORGET</h1>
+                    <button type="button" class="btn-lg btn-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">SING IN</button>
+                    <button type="button" class="btn-lg btn-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">REGISTER</button>
     			</div>	
     		</div>
     	</div>

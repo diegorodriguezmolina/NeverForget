@@ -21,13 +21,6 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
 
 </head>
 <body>
-
-<video autoplay muted loop id="myVideo">
-  <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
-        
-    <div class="container col-11 mt-4">
         
         <nav class="navSize navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Never Forget</a>
@@ -35,13 +28,24 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav col-11">
                     <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#">About as</a>
+                    
+                </div>
+                <div class="dropdown float-right col-1">
+                    <a class="navbar-brand float-right"role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                        <img src="../assets/img/usuario.png" width="30" height="30" alt="">
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="#">Progress</a>
+                    </div>
                 </div>
             </div>
         </nav>
-    </div>  
+  
  
     
     <?php startblock('principal') ?>

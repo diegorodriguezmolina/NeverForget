@@ -1,7 +1,7 @@
     
 html, body{
 
-    background-image: url("../images/wallpaper.jpg");
+    background-image: url("../assets/img/wallpaper.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;

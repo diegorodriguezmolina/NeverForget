@@ -1,3 +1,6 @@
+html{
+    font-size: 15px;
+}
 body{
     background-image: url(../assets/img/background.jpg);
 }
@@ -6,4 +9,19 @@ body{
 }
 .imagenLateral{
     margin-top: 10%;
+}
+
+.fuente{
+    font-family: 'Special Elite', cursive;
+    font-size: 1.2rem;
+}
+
+.titulo{
+    font-family: 'Special Elite', cursive;
+    font-size: 2rem;
+}
+
+img{
+    border: 2px solid #000;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
 }

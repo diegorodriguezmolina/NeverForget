@@ -14,7 +14,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
     </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../styles/Games.css">
-   
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+
 
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/popper.min.js"></script>

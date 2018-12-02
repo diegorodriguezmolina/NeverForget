@@ -1,19 +1,19 @@
 <?php include "../templates/master.php" ?>
 
     <?php startblock('head') ?>
-        <link rel="stylesheet" href="../Styles/Tindex.css">
+     <title>Contexto histórico</title>
     <?php endblock() ?>
 
 <?php startblock('principal') ?>
-
+<link rel="stylesheet" href="../Styles/Tindex.css">
 <div class="container-fluid">
    <div class="card mt-5 bg-transparent">
-        <div class="card-header bg-transparent">
+        <div class="card-header bg-transparent mt-5">
             <h1 class="colorSecundario titulo text-center">Enero de 1938</h1>
         </div>
 
         <div class="row no-gutters">
-            <div class="col-sm-6">
+            <div class="col-sm-6 mt-5">
                 <div class="card-block px-2">
                     <p class="card-text" id="text"> España se encuentra en plena Guerra Civil entre nacionalistas y republicanos
                     El bando republicano, está formado por el Gobierno, junto con sindicatos, comunistas,
@@ -40,7 +40,7 @@
                 <img src="../assets/img/barcelona.jpg" class="img-fluid" id="imgContext">
             </div>
 
-            <div class="col-sm-12 text-center">
+            <div class="col-sm-12 mt-5 text-center">
                 <button type="button" class="btn-lg btn-danger" href="index.php">VOLVER</button>
             </div>
         </div>          

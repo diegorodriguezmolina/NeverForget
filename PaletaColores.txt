@@ -1,5 +1,6 @@
-Gris claro - 34374c
-Gris oscuro - 2c2e3e
+Gris claro - DED9D8
+Gris oscuro - 34374c
+Gris muy oscuro - 2c2e3e
 Rojo - ee2b47
 Blanco - f6f6f6
 

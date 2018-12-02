@@ -30,7 +30,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav col-11">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active" href="contextoHistorico.php">Historic Context <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#">About us</a>
                     
                 </div>

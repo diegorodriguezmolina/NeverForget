@@ -51,5 +51,5 @@
                 </div>
             </div>
         </div>       
-        <script type="text/javasceipt" src="../scripts/loginModal.js"></script>      
+        <script type="text/javascript" src="../scripts/loginModal.js"></script>      
 <?php endblock() ?>

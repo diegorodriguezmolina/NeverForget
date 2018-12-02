@@ -14,9 +14,13 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
     </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../styles/Games.css">
+    
+    <!--FUENTE MÁQUINA ESCRIBIR API GOOGLE-->
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-   
 
+    <!--ICONOS DE GOOGLE PARA NAVEGACIÓN-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>

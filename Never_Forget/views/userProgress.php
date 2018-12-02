@@ -69,7 +69,8 @@
     </div>
   </div>
 </div>
-    
+
+<i class="material-icons" style="font-size:48px;color:red" href="index.php">arrow_back</i>
     
     
 <?php endblock() ?>

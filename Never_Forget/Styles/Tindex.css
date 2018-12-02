@@ -18,10 +18,38 @@ html, body{
     font-family: 'Special Elite', cursive;
 }
 
+#indexText{
+	font-size: 35px;
+    margin-bottom: 10px;
+    font-family: 'Special Elite', cursive;
+}
+
+#text{
+	font-size: 20px;
+    margin-bottom: 10px;
+    font-family: 'Special Elite', cursive;
+
+}
+
 #myVideo {
     position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%; 
     min-height: 100%;
+}
+
+.colorSecundario{
+    color: #ee2b47;
+}
+
+.titulo{
+    font-family: 'Special Elite', cursive;
+    font-size: 2rem;
+}
+
+#imgContext{
+    border: 2px solid #000;
+    margin-top: 20px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
 }

@@ -33,6 +33,11 @@ h2{
     font-size: 1.2rem;
 }
 
+#pHistoria{
+    font-family: 'Special Elite', cursive;
+    font-size: 1.5rem;
+}
+
 #imgDifuminada{
     border: 2px solid #000;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);

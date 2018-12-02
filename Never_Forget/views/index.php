@@ -1,9 +1,10 @@
 <?php include "../templates/master.php" ?>
-<?php startblock('principal') ?>
 
     <?php startblock('head') ?>
         <link rel="stylesheet" href="../Styles/Tindex.css">
     <?php endblock() ?>
+
+<?php startblock('principal') ?>
 
         <video autoplay muted loop id="myVideo">
             <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
@@ -15,11 +16,10 @@
     			<div class="col text-center">
                     <h1 id="Title" class="text-white">NEVER FORGET</h1>
                     <p id = indexText class="text-white">España está en plena Guerra Civil entre republicanos y nacionalistas</p>
-                    <p id = indexText class="text-white"> El bando nacionalista gana posiciones gracias a la ayuda de países afines</p>
-                    <p id = indexText class="text-white"> Barcelona, capital de Catalunya,</p>
-                    <p id = indexText class="text-white">     Resiste</p>
-                    <button type="button" class="btn-lg btn-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">SING IN</button>
-                    <button type="button" class="btn-lg btn-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">REGISTER</button>
+                    <p id = indexText class="text-white">El bando nacionalista gana posiciones gracias a la ayuda de países afines</p>
+                    <p id = indexText class="text-white">Barcelona, capital de Catalunya,</p>
+                    <p id = indexText class="text-white">Resiste</p>
+                    <button type="button" class="btn-lg btn-danger regular-button mr-5"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">START THE ADVENTUR3</button>
     			</div>	
     		</div>
     	</div>

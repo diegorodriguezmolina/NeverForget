@@ -50,7 +50,6 @@
                 </div>
                 </div>
             </div>
-        </div>
-        
+        </div>       
         <script type="text/javasceipt" src="../scripts/loginModal.js"></script>      
 <?php endblock() ?>

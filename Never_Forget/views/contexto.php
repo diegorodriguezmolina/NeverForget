@@ -31,7 +31,7 @@
     </div>
     <div class="container col-sm-6 float-left imagenLateral">
        
-            <img class="card-img-top" src="../assets/img/barcelona.jpg" alt="Card image cap">
+            <img class="card-img-top" src="../assets/img/barcelona.jpg" alt="Card image cap" id=imgDifuminada>
             <a href="#" class="btn-lg btn-danger float-right mt-5 mr-3">Continue</a>
     </div>
     

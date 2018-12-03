@@ -1,0 +1,43 @@
+.main {
+    background-color: #46474e;
+    color: white;
+    margin-top: 3%;
+}
+
+div .card{
+    width: 15rem;
+    margin-bottom: 10px;
+    background-color: #46474e;
+    border: none;
+    padding: 2%; 
+}
+
+.iconAbout {
+    color:white;
+    font-size: 24px;
+}
+
+.card:hover {
+    background-color: #646464;
+}
+
+.titulo {
+    text-align: center;
+    padding-top: 3%;
+    margin-bottom: 15px;
+}
+
+.abstract {
+    text-align: center;
+    justify-content: flex-start;
+    margin-bottom: 5%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li {
+    float: left;
+    margin-right: 20px;
+}

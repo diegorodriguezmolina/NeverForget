@@ -7,4 +7,13 @@ var recipient = button.data('whatever') // Extract info from data-* attributes
 var modal = $(this)
 modal.find('.modal-title').text('New message to ' + recipient)
 modal.find('.modal-body input').val(recipient)
-})
+});
+
+
+    $("#botonBajar").on('click', function() {
+      var posicion= $("#texto").offset().top;
+      $("html, body").animate({
+        scrollTop: posicion
+
+      }, 2000);
+    });

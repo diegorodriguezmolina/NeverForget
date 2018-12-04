@@ -5,9 +5,12 @@
     <?php endblock() ?>
 
 <?php startblock('principal') ?>
+
         <video autoplay muted loop id="myVideo">
-            <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
+
+        <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
+
         </video>
        
         <div class="container-fluid h-100 prueba"> 

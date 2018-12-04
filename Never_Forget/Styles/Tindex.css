@@ -66,6 +66,8 @@ html, body{
 .texto{
     margin-top: -39%;
     margin-bottom: 10%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .button{

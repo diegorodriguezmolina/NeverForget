@@ -6,9 +6,9 @@
 
 <?php startblock('principal') ?>
 <link rel="stylesheet" href="../Styles/Tindex.css">
-<div class="container-fluid">
-   <div class="card mt-5 bg-transparent">
-        <div class="card-header mt-5">
+<div class="container">
+   <div class="card mt-5 bg-transparent border-0">
+        <div class="card-header mt-5 bg-transparent border-bottom-0">
             <h1 class="colorSecundario titulo ">Enero de 1938</h1>
             <button type="button" class="btn-lg btn-outline-danger float-right" href="#">VOLVER</button>
         </div>

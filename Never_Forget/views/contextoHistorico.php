@@ -16,7 +16,7 @@
         <div class="row no-gutters">
             <div class="col-sm-6 mt-5">
                 <div class="card-block px-2">
-                    <p class="card-text text-white" id="text"> España se encuentra en plena Guerra Civil entre nacionalistas y republicanos
+                    <p class="card-text text-black" id="text"> España se encuentra en plena Guerra Civil entre nacionalistas y republicanos
                     El bando republicano, está formado por el Gobierno, junto con sindicatos, comunistas,
                     anarquistas, obreros y campesinos.
                     En el bando nacionalista, está la parte rebelde del ejército, la burguesía, los terratenientes y,

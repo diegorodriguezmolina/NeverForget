@@ -15,5 +15,5 @@ modal.find('.modal-body input').val(recipient)
       $("html, body").animate({
         scrollTop: posicion
 
-      }, 2000);
+      }, 1000);
     });

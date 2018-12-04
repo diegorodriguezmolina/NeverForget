@@ -10,7 +10,7 @@
    <div class="card mt-5 bg-transparent">
         <div class="card-header mt-5">
             <h1 class="colorSecundario titulo ">Enero de 1938</h1>
-            <button type="button" class="btn-lg btn-danger float-right" href="#">VOLVER</button>
+            <button type="button" class="btn-lg btn-outline-danger float-right" href="#">VOLVER</button>
         </div>
 
         <div class="row no-gutters">

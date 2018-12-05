@@ -1,5 +1,5 @@
 .main {
-    background-color: #46474e;
+    background-color: #A5A5A5;
     color: white;
     margin-top: 3%;
 }
@@ -7,7 +7,7 @@
 div .card{
     width: 15rem;
     margin-bottom: 10px;
-    background-color: #46474e;
+    background-color:transparent;
     border: none;
     padding: 2%; 
 }

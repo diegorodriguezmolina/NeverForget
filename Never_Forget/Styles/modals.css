@@ -45,14 +45,15 @@ input[type=submit]:hover {
 
 .col-25 {
     float: left;
-    width: 15%;
+    width: 20%;
     margin-top: 6px;
 }
 
 .col-75 {
-    float: left;
-    width: 83%;
+    float: right;
+    width: 75%;
     margin-top: 6px;
+    display: inline-block;
 }
 
 /* Clear floats after the columns */

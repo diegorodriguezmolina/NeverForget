@@ -6,27 +6,25 @@
     if(isset($_POST['register'])){
         exeinsertUser($_POST['name'],$_POST['email'], $_POST['password'], $_POST['repassword']);
 
-        if(isset($_SESSION['error'])){
-
-            header('Location: /UF1/RESERVES_BD/vistas/index.php');
+        if(isset($_SESSION['errorRegister'])){
+            header('Location: /NeverForget-JordiPare/Never_Forget/views/index.php');
             exit();
         }
         else{
-            header('Location: /UF1/RESERVES_BD/vistas/index.php');
+            header('Location: /NeverForget-JordiPare/Never_Forget/views/index.php');
             exit();
         }      
     }
 
     if(isset($_POST['login'])){
-        exeselectUsuarioByPassword($_POST['email'], $_POST['password']);
+        selectUsuarioByPassword($_POST['emailLogin'], $_POST['passwordLogin']);
 
         if(isset($_SESSION['error'])){
-
-            header('Location: /UF1/RESERVES_BD/vistas/index.php');
+            header('Location: /NeverForget-JordiPare/Never_Forget/views/index.php');
             exit();
         }
         else{
-            header('Location: /UF1/RESERVES_BD/vistas/index.php');
+            header('Location: /NeverForget-JordiPare/Never_Forget/views/index.php');
             exit();
         }      
     }

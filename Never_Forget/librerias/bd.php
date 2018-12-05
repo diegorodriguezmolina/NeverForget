@@ -65,16 +65,16 @@ function exeinsertUser($name, $email, $password, $repassword){
     $role = 0;
     try{
         if($name == "" ){
-            throw new Exception('El campo nombre no puede estar vacio');
+            throw new Exception('El campo "nombre" no puede estar vacio');
         }
         elseif( $email == ""){
-            throw new Exception('El campo email no puede estar vacio');
+            throw new Exception('El campo "email" no puede estar vacio');
         }
         elseif ($password == "") {
-            throw new Exception('El campo password no puede estar vacio');
+            throw new Exception('El campo "password" no puede estar vacio');
         }
         elseif ($repassword == "") {
-            throw new Exception('El campo comprobar password no puede estar vacio');
+            throw new Exception('El campo "re password" no puede estar vacio');
         }
 
         if($password !== $repassword){
@@ -94,7 +94,7 @@ function exeinsertUser($name, $email, $password, $repassword){
         $_SESSION["mensaje"] = "Registro insertado correctamente";
     }
     catch(PDOException $e){
-        $_SESSION['error'] = errorMessage($e);
+        $_SESSION['errorRegister'] = errorMessage($e);
 
         $login['name'] = $name;
         $login['email'] = $email;
@@ -103,7 +103,7 @@ function exeinsertUser($name, $email, $password, $repassword){
         $_SESSION['login'] = $login;
     }
     catch (Exception $e) {
-        $_SESSION['error'] = $e->getMessage();
+        $_SESSION['errorRegister'] = $e->getMessage();
         
         $login['name'] = $name;
         $login['email'] = $email;
@@ -116,8 +116,14 @@ function exeinsertUser($name, $email, $password, $repassword){
    
 }
 
-function exeselectUsuarioByPassword($email, $password){
+function selectUsuarioByPassword($email, $password){
     try{
+        if($email == "" ){
+            throw new Exception('El campo "e-mail" no puede estar vacio');
+        }
+        elseif( $password == ""){
+            throw new Exception('El campo "password" no puede estar vacio');
+        }
         $conn = openBD();
 
         $sentencia = $conn->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
@@ -134,11 +140,11 @@ function exeselectUsuarioByPassword($email, $password){
             $_SESSION["mensaje"] = "Login correcto";
         }       
     }
-     catch (Exception $e) {
-        $_SESSION['error'] = $e->getMessage();
-    }
     catch(PDOException $e){
         $_SESSION['error'] = errorMessage($e);
+    }
+    catch (Exception $e) {
+        $_SESSION['error'] = $e->getMessage();
     }
     $conn = closeBD();
 }

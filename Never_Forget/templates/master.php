@@ -32,10 +32,10 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti
                 <div class="navbar-nav col-11">
                     <a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="contextoHistorico.php">Historic Context <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="../views/about_us.php">About us</a>
+                    <a class="nav-item nav-link" href="../views/about_us.php">About us <span class="sr-only">(current)</span></a>
                     
                 </div>
-                <div class="dropdown float-right col-1">
+                <div class="dropdown col-1 float-right">
                     <a class="navbar-brand float-right"role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                         <img src="../assets/img/usuario.png" width="30" height="30" alt="">
                     </a>

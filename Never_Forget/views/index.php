@@ -6,12 +6,13 @@
 
 <?php startblock('principal') ?>
 
-        <video autoplay muted loop id="myVideo">
+        <video autoplay muted loop id="myVideo" class="container-fluid">
 
-        <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
+            <source src="../assets/videos/videoIndex.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
 
         </video>
+        
        
         <div class="container-fluid h-100 prueba"> 
     		<div class="row w-100 align-items-center justify-content-center">

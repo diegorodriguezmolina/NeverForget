@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div>commit</div>
+    <div></div>
 </body>
 </html>

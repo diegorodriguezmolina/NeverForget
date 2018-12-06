@@ -15,7 +15,7 @@ var ballInterval;
 var lifeLeft = 20;
 
 //OTHERS
-var images = ['../../../assets/img/roca.png', '../../../assets/img/wood.png'];
+var images = ['url(../../assets/img/roca.png)', 'url(../../assets/img/skull.png)', 'url(../../assets/img/rock2.png)','url(../../assets/img/kid.png)','url(../../assets/img/roca.png)'];
 
 
 //Start the game when the page is load
@@ -24,7 +24,7 @@ $(document).ready(function() {
     //show text
     setLifeText();
     //pad limitations, only move inside #field and axis X
-	$('#pad').draggable({ axis: 'x', containment: '#field' }); 
+    $('#pad').draggable({ axis: 'x', containment: '#field' }); 
 });
 
 
@@ -33,7 +33,7 @@ function Game() {
     window.bricks = []; //bricks array
     
     //number of bricks 
-	this.column = 6;
+	this.column = 4;
 	this.bricksPerRow = 6;
 
 	for (y = 0; y < this.column; y++) {
@@ -111,7 +111,7 @@ function Brick(x, y) {
 			.css('height', this.height)
 			.css('top', this.top )
             .css('left', this.left)
-            .css('background-image',images[Math.floor(Math.random() * images.length)]);
+            .css('background-image', images[Math.floor(Math.random() * images.length)]);
 
 		$('#field').append(this.brick);
 	}
@@ -126,7 +126,7 @@ function Pad(n) {
 	var field_width = parseInt($('#field').css('width'));
 	var fieldHeight = parseInt($('#field').css('height'));
 	this.width = field_width / n;
-	this.height = 400; //this.width / 5;
+	this.height = 200; //this.width / 5;
     window.pad = $('<div id="pad"><div id="touch"></div></div>')
 		.css('width', this.width) //should be this.width
 		.css('height', this.height)

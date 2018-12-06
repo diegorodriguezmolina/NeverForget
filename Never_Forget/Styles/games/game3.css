@@ -3,12 +3,13 @@ body {
 }
 
 #field {
-	background-color: white;
-	max-width: 800px;
-	height: 600px;
+	background-image:url("../../assets/img/neri.png");
+	max-width: 1152px;
+	height: 843px;
 	margin: 0 auto;
 	position: relative;
 }
+
 #scores {
 	position: absolute;
 	font: 20px monospace;
@@ -26,23 +27,48 @@ body {
 	width: 100%;
 	height: 100%;
 	max-height: 100%;
-	background-color: rgba(192,192,192,0.9);
+	background-color: rgba(14, 11, 11, 0.9);
 }
+
+#slower {
+	z-index: 100;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+}
+
+
+
+
 #game-text {
 	position: relative;
 	left: 0;
 	top: 40%;
 	font: 40px monospace;
 	z-index: 200;
-	color: #2980b9;
+	color: #b92929;
 	font-weight: bold;
 }
 
+#continue {
+
+color: #b92929;
+
+}
+
 .brick {
-	position: absolute;
-	width: 80px;
-	height: 20px;
-	background-color: red;
+    background-image:url("../../assets/img/roca.png");
+    position: absolute;
+    background-repeat:no-repeat;
+    background-size: 110px 100px;
+    background-position: center; 
+
+	
 }
 #pad {
 	position: absolute;
@@ -51,13 +77,13 @@ body {
 #touch {
 	position: block;
 	height: 40px;
-	background-color: red;
+	background-color:grey;
 	z-index: 9;
 }
 
 .ball {
 	position: absolute;
-	width: 80px;
-	height: 20px;
-	background-color: red;
+    background-image:url("../../assets/img/Lluis2.png");
+    background-repeat:no-repeat;
+
 }

@@ -12,13 +12,21 @@
 <body>
 
 	<div id="game-over">
-		<div id="game-text">GAME OVER!</div>
+        <div id="game-text">GAME OVER!</div>
+        <button id="continue">TRY AGAIN</button>		
+	</div>
+
+    <div id="slower">
+		<div id="game-text">Try it slowly </div>
 		
 	</div>
 
 	<div id="field">
-		<div id="scores">Lifes left:</div>
+
+    <div id="scores">Lifes left:</div>
 	</div>
+
+    
 
 </body>
 </html>

@@ -1,89 +1,42 @@
-// some game variables
+//PAD VARIABLES
 var padSpeed = 0.8;
 var padLeftPressed = false;
 var padRightPressed = false;
 
-var ballSpeedY = 2.5 + Math.random();
-var ballSpeedX = ballSpeedY / (Math.random() + 1);
+//BALL VARIABLES
+var ballSpeedY = 4;
+var ballSpeedX = ballSpeedY/2;
 var ballDirectionX;
 Math.random() > 0.5 ? ballDirectionX = '+' : ballDirectionX = '-';
 var ballDirectionY = '+';
 var ballInterval;
 
-var lifeLeft = 3;
+//PLAYER VARIABLES
+var lifeLeft = 20;
+
+//OTHERS
+var images = ['../../../assets/img/roca.png', '../../../assets/img/wood.png'];
 
 
-$(document).ready(function() { //Cuando la página está cargada, inicializamos el juego
-	window.game = new Game(); //Instanciamos game
-	setLifeText();
-	$('#pad').draggable({ axis: 'x', containment: '#field' }); //Solo se puede mover en el eje x dentro de #field
+//Start the game when the page is load
+$(document).ready(function() { 
+    window.game = new Game(); 
+    //show text
+    setLifeText();
+    //pad limitations, only move inside #field and axis X
+	$('#pad').draggable({ axis: 'x', containment: '#field' }); 
 });
 
-// imprime cuantas vidas tenemos
-function setLifeText() {
-	$('#scores').text('Lifes left: ' + lifeLeft); //Modificamos el texto
-}
 
-// calculate duration of jquery animation based on pixel distance
-function calcAnimDuration(x) {
-	//debugger;
-	var field_width = parseInt($('#field').css('width'));
-	var padWidth = parseInt(window.pad.css('width'));
-	var padLeft = parseInt(window.pad.css('left'));
-	if (x === 0) {
-		return (padLeft / padSpeed)
-	} else {
-		return ( (field_width-padWidth-padLeft) / padSpeed)
-	}
-}
-
-// listen for key pressing
-$(document).keydown(function(e) {
-	switch (e.which) {
-	case 37: //left arrow
-		e.preventDefault();
-		if (!padLeftPressed) window.pad.animate({left: '0'}, calcAnimDuration(0));
-		padLeftPressed = true;
-		break;
-	case 39: //right arrow
-		e.preventDefault();
-		var fieldWidth = parseInt(window.pad.css('width'));
-		var x = 800 - fieldWidth;
-		if (!padRightPressed) window.pad.animate({left: x }, calcAnimDuration(1));
-		padRightPressed = true;
-		break;
-	}
-});
-$(document).keyup(function(e) {
-	switch (e.which) {
-	case 37: //left arrow
-		padLeftPressed = false;
-		window.pad.stop();
-		break;
-	case 39: //right arrow
-		padRightPressed = false;
-		window.pad.stop();
-		break;
-	}
-});
-
-function changeBallInterval(ms) {
-	clearInterval(ballInterval);
-	ballInterval = setInterval(moveBall, ms);
-}
-
-// Cambiamos la velocidad después de un minuto  de juego
-/*setTimeout(function() {
-	changeBallInterval(1000);
-}, 1000);*/
-
-// build everything and start game loop
+// build everything and start the game loop
 function Game() {
-	window.bricks = [];
-	this.rows = 4;
+    window.bricks = []; //bricks array
+    
+    //number of bricks 
+	this.column = 6;
 	this.bricksPerRow = 6;
 
-	for (y = 0; y < this.rows; y++) {
+	for (y = 0; y < this.column; y++) {
 		for (x = 0; x < this.bricksPerRow; x++) {
 			var brick = new Brick(x, y);
 			window.bricks.push(brick);
@@ -97,33 +50,74 @@ function Game() {
 }
 
 
+// show the lifes player has
+function setLifeText() {
+	$('#scores').text('Lifes left: ' + lifeLeft); //Modificamos el texto
+}
+
+// calculate duration of jquery animation based on pixel distance
+function calcAnimDuration(x) {
+
+	var field_width = parseInt($('#field').css('width')); // 800
+	var padWidth = parseInt(window.pad.css('width')); //134
+	var padLeft = parseInt(window.pad.css('left')); //333
+    
+    if (x === 0) {
+		return (padLeft / padSpeed)
+	} else {
+		return ( (field_width-padWidth-padLeft) / padSpeed)
+	}
+}
+
+
+//[Easier Mode after 1 min game]
+
+//After 1 min, the ball reduce its velocity
+setTimeout(function() {
+    if(lifeLeft>0){
+    changeBallInterval(10*2);
+    }
+}, 600000);
+
+//change the ms of the moveball function and shows the div text for a moment
+function changeBallInterval(ms) {
+    $('#slower').fadeIn(1000);
+    $('#slower').fadeOut(4000);
+	clearInterval(ballInterval);
+    ballInterval = setInterval(moveBall, ms);
+  
+}
+
+
 // bricks are here
 function Brick(x, y) {
+
 	var field_width = parseInt($('#field').css('width')); // available field for bricks
-	var all_blocks_width = field_width * 0.8
-	this.spacing = (field_width - all_blocks_width) / 7
-	this.width = all_blocks_width / 6; // divided by the amount of bricks per row
-	this.height = this.width / 4;
-	this.color = getColor();
+	var all_blocks_width = field_width * 0.9
+
+    this.spacing = (field_width - all_blocks_width) / 7
+    this.width = all_blocks_width / 6; // divided by the amount of bricks per row
+	this.height = this.width / 2;
 	this.top = (this.spacing + this.height) * y + this.spacing
 	this.left = (this.width + this.spacing) * x + this.spacing
 
+    //creates one div for each brick with the css info specified before
 	this.render = function() {
 		var self = this;
 
 		self.brick = $('<div></div>')
 			.addClass("brick")
-			.css('background-color', this.color)
 			.css('width', this.width)
 			.css('height', this.height)
 			.css('top', this.top )
-			.css('left', this.left );
+            .css('left', this.left)
+            .css('background-image',images[Math.floor(Math.random() * images.length)]);
 
 		$('#field').append(this.brick);
 	}
 
 	this.kill = function() {
-    	this.brick.css('background-color', getColor()).remove();
+    	this.brick.remove();
   	}
 }
 
@@ -133,7 +127,7 @@ function Pad(n) {
 	var fieldHeight = parseInt($('#field').css('height'));
 	this.width = field_width / n;
 	this.height = 400; //this.width / 5;
-	window.pad = $('<div id="pad"><div id="touch"></div></div>')
+    window.pad = $('<div id="pad"><div id="touch"></div></div>')
 		.css('width', this.width) //should be this.width
 		.css('height', this.height)
 		.css('top', fieldHeight * 0.9)
@@ -145,7 +139,7 @@ function Pad(n) {
 // ball here
 function Ball() {
 	var fieldWidth = parseInt($('#field').css('width'));
-	this.width = fieldWidth * 0.05;
+	this.width = fieldWidth * 0.10;
 	this.height = this.width;
 	window.ball = $('<div class="ball"></div>')
 		.css('width', this.width)
@@ -175,21 +169,12 @@ function checkCollision(ball) {
 	var padLeft = parseInt(pad.css('left'));
 
 	var ballTop = parseInt(ball.css('top'));
-	var ballLeft = parseInt(ball.css('left'));
-	// pad collision check
+    var ballLeft = parseInt(ball.css('left'));
+    
+
+	// player collision check
 	if (padTop <= (ballTop+ball.width()) && !( (padTop - 10) <= (ballTop+ball.height()/2) ) && padLeft <= (ballLeft+ball.width()/4*3) && (padLeft + pad.width()) >= (ballLeft+ball.width()/4)
-			) {
-		ballSpeedX = ballSpeedY / (1 + Math.random());
-		// if pad is moving during collision do some random stuff
-		if (ballDirectionY === '+' && padRightPressed) {
-			ballSpeedX += 0.3;
-		} else if (ballDirectionY === '-' && padRightPressed) {
-			ballSpeedX -= 0.2;
-		} else if (ballDirectionX === '-' && padLeftPressed) {
-			ballSpeedX += 0.3;
-		} else if (ballDirectionX === '-' && padLeftPressed) {
-			ballSpeedX -= 0.2;
-		}
+			) {	
 		ballDirectionY === '+' ? ballDirectionY = '-' : ballDirectionY = '+';
 	}
 	// field collision check
@@ -211,8 +196,7 @@ function checkCollision(ball) {
 				done = true; // variable to interrupt loop
 				var i = window.bricks.indexOf(brick);
 				if (i > -1) window.bricks.splice(i, 1); // delete brick from an array
-				brick.kill();
-				if (ballSpeedY < 6) ballSpeedY += 0.2; // increase ball speed after each brick hit
+				brick.kill();				
 			}
 			if (done) throw BreakException; // interrup array
 		});
@@ -225,15 +209,10 @@ function checkCollision(ball) {
 		if (lifeLeft > 1) {
 			lifeLeft--;
 			ball.remove();
-			if (ballSpeedY < 5) { // lower speed if its to big after ball hit bottom
-				ballSpeedY = ballSpeedY - 1 + Math.random();
-			} else {
-				ballSpeedY = 3.5 + Math.random();
-			}
-			ballSpeedX = ballSpeedY / (Math.random() + 1); // change ball x speed
 			Math.random() > 0.5 ? ballDirectionX = '+' : ballDirectionX = '-';
 			var ball = new Ball(); // create new ball
-			setLifeText(); // update player life text
+            setLifeText(); // update player life text
+            
 		} else {
 			// game over stuff
 			lifeLeft = 0;
@@ -252,13 +231,49 @@ function checkCollision(ball) {
 
 }
 
-// random color for bricks
 
-function getColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#00000';
-    //for (var i = 0; i < 6; i++ ) {
-      //  color += letters[Math.floor(Math.random() * 16)];
-    //}
-    return color;
-}
+
+// KEYPRESS OPTIONS
+
+//move right or left
+$(document).keydown(function(e) {
+
+	switch (e.which) {
+
+	case 37: //left arrow
+		e.preventDefault();
+		if (!padLeftPressed) window.pad.animate({
+            left: '0'}, 
+            calcAnimDuration(0));
+		    padLeftPressed = true;
+            break;
+        
+	case 39: //right arrow
+		e.preventDefault();
+		var fieldWidth = parseInt(window.pad.css('width'));
+		var x = 1152 - fieldWidth;
+        
+        if (!padRightPressed) window.pad.animate({
+            left: x },
+            calcAnimDuration(1));
+		    padRightPressed = true;
+		    break;
+	}
+});
+
+// stops if the key is up
+$(document).keyup(function(e) {
+	switch (e.which) {
+
+	case 37: //left arrow
+		padLeftPressed = false;
+		window.pad.stop();
+        break;
+        
+	case 39: //right arrow
+		padRightPressed = false;
+		window.pad.stop();
+		break;
+	}
+});
+

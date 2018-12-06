@@ -1,0 +1,63 @@
+body {
+	background-color: grey;
+}
+
+#field {
+	background-color: white;
+	max-width: 800px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+}
+#scores {
+	position: absolute;
+	font: 20px monospace;
+	bottom: 0;
+	right: 0;
+}
+
+#game-over {
+	z-index: 100;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	background-color: rgba(192,192,192,0.9);
+}
+#game-text {
+	position: relative;
+	left: 0;
+	top: 40%;
+	font: 40px monospace;
+	z-index: 200;
+	color: #2980b9;
+	font-weight: bold;
+}
+
+.brick {
+	position: absolute;
+	width: 80px;
+	height: 20px;
+	background-color: red;
+}
+#pad {
+	position: absolute;
+	z-index: 50;
+}
+#touch {
+	position: block;
+	height: 40px;
+	background-color: red;
+	z-index: 9;
+}
+
+.ball {
+	position: absolute;
+	width: 80px;
+	height: 20px;
+	background-color: red;
+}

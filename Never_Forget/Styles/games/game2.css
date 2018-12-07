@@ -1,4 +1,12 @@
-body{
-    background: url("../../assets/img/game2_fondo.jpg") no-repeat; 
-   
+
+#back {
+	background-color: white;
+	max-width: 800px;
+	height: 600px;
+    background-image: url("../../assets/img/game2_fondo.jpg"); 
+    background: no-repeat;
+	max-width: 1152px;
+	height: 843px;
+	margin: 0 auto;
+	position: relative;
 }

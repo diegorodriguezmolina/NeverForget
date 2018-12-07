@@ -10,13 +10,30 @@ var ballDirectionX;
 Math.random() > 0.5 ? ballDirectionX = '+' : ballDirectionX = '-';
 var ballDirectionY = '+';
 var ballInterval;
+var isNewGame = true;
+var gameEnds = false;
+
+var lastPlayerCollisionInMs = +(new Date());
 
 //PLAYER VARIABLES
-var lifeLeft = 20;
+var lifeLeft = 1;
 
 //OTHERS
-var images = ['url(../../assets/img/roca.png)', 'url(../../assets/img/skull.png)', 'url(../../assets/img/rock2.png)','url(../../assets/img/kid.png)','url(../../assets/img/roca.png)'];
+var images = [	'url(../../assets/img/roca.png)', 
+				'url(../../assets/img/skull.png)', 
+				'url(../../assets/img/rock2.png)',
+				'url(../../assets/img/roca.png)',
+				'url(../../assets/img/rock2.png)',
+				'url(../../assets/img/roca.png)',];
 
+var children = [
+				'url(../../assets/img/girl.gif)',
+				'url(../../assets/img/girl2.gif)',
+				'url(../../assets/img/girl3.gif)',
+				'url(../../assets/img/girl4.gif)'];
+function restartGame() {
+	window.location.reload();
+}
 
 //Start the game when the page is load
 $(document).ready(function() { 
@@ -33,10 +50,21 @@ function Game() {
     window.bricks = []; //bricks array
     
     //number of bricks 
-	this.column = 4;
+	this.column = 3;
+	let cookies = getCookies();
+	let consecutiveGameOvers = parseInt(cookies.consecutiveGameOvers || "0");
+	if (consecutiveGameOvers>2) {
+		this.column = 1;
+	}
 	this.bricksPerRow = 6;
 
-	for (y = 0; y < this.column; y++) {
+	for (x = 0; x < this.bricksPerRow; x++) {
+		var brick = new Brick(x, 0);
+		window.bricks.push(brick);
+		brick.render(children, "child");
+	}
+
+	for (y = 1; y < this.column +1; y++) {
 		for (x = 0; x < this.bricksPerRow; x++) {
 			var brick = new Brick(x, y);
 			window.bricks.push(brick);
@@ -46,7 +74,11 @@ function Game() {
 
 	this.pad = new Pad(this.bricksPerRow);
 	this.ball = new Ball();
-	ballInterval = setInterval(moveBall, 10);
+	setTimeout(function() {
+		ballInterval = setInterval(moveBall, 10);
+		isNewGame = false;
+	}, 1000)
+	
 }
 
 
@@ -102,8 +134,12 @@ function Brick(x, y) {
 	this.left = (this.width + this.spacing) * x + this.spacing
 
     //creates one div for each brick with the css info specified before
-	this.render = function() {
+	this.render = function(backgrounds, classId) {
 		var self = this;
+
+		backgrounds = backgrounds || images;
+
+		let backgroundImage = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
 		self.brick = $('<div></div>')
 			.addClass("brick")
@@ -111,13 +147,30 @@ function Brick(x, y) {
 			.css('height', this.height)
 			.css('top', this.top )
             .css('left', this.left)
-            .css('background-image', images[Math.floor(Math.random() * images.length)]);
+			.css('background-image', backgroundImage);
+			
+			if (classId) {
+				this.brick.addClass(classId);
+			}
 
 		$('#field').append(this.brick);
 	}
 
-	this.kill = function() {
-    	this.brick.remove();
+	this.kill = function(cb) {
+		let that = this;
+		if (this.brick.hasClass("child")) {
+			this.brick.animate({ "left": (($("#field").width() / 2) - this.brick.width() / 2) + "px", top: $("#field").height() *0.75 + "px"}, 1000, undefined, function() {
+
+				that.brick.fadeOut(200, function() {
+					that.brick.remove();
+				});
+			} );
+		} else {
+			this.brick.fadeOut(200, function() {
+				that.brick.remove();
+			});
+		}
+    	
   	}
 }
 
@@ -130,7 +183,7 @@ function Pad(n) {
     window.pad = $('<div id="pad"><div id="touch"></div></div>')
 		.css('width', this.width) //should be this.width
 		.css('height', this.height)
-		.css('top', fieldHeight * 0.9)
+		.css('top', fieldHeight * 0.75)
 		.css('left', field_width / 2 - this.width / 2);
 
 	$('#field').append(window.pad);
@@ -146,7 +199,7 @@ function Ball() {
 		.css('height', this.height)
 		.css('border-radius', this.width/2)
 		.css('left', fieldWidth/2-this.width/2)
-		.css('top', fieldWidth * 0.3);
+		.css('top', fieldWidth * (isNewGame ? 0.60 : 0.35));
 
 	$('#field').append(window.ball);
 }
@@ -156,7 +209,39 @@ function moveBall() {
 	var ball = window.ball;
 	ball.css('top', ballDirectionY+'='+ballSpeedY);
 	ball.css('left', ballDirectionX+'='+ballSpeedX);
+	if (ballDirectionX == "-") {
+		ball.css('transform', 'inherit');
+	} else {
+		ball.css('transform', 'scaleX(-1)');
+	}
+	
 	checkCollision(ball);
+}
+
+
+function ballDirection(direction){
+
+	if(direction === '+'){
+
+		direction = '-';
+
+	}else{
+
+		direction = '+';
+	}
+	
+	return direction;
+}
+
+function getCookies() {
+	let cookies = {};
+			
+	document.cookie.split(/;\s?/).forEach(function(c) {
+		let cookieKey = c.split("=")[0];
+		cookies[cookieKey] = c.split("=")[1];
+	})
+
+	return cookies;
 }
 
 // check collision of the ball with bricks
@@ -173,16 +258,37 @@ function checkCollision(ball) {
     
 
 	// player collision check
-	if (padTop <= (ballTop+ball.width()) && !( (padTop - 10) <= (ballTop+ball.height()/2) ) && padLeft <= (ballLeft+ball.width()/4*3) && (padLeft + pad.width()) >= (ballLeft+ball.width()/4)
-			) {	
-		ballDirectionY === '+' ? ballDirectionY = '-' : ballDirectionY = '+';
+	if (padTop <= (ballTop+ball.width()) && !( (padTop - 10) <= (ballTop+ball.height()/2) ) 
+	&& padLeft <= (ballLeft+ball.width()/4*3) && (padLeft + pad.width()) >= (ballLeft+ball.width()/4))
+	{
+		let currentTimeInMs = +(new Date());
+		if (lastPlayerCollisionInMs < currentTimeInMs - 300) { //Avoid ball collide twice with the player
+			let padCenter = padLeft + (pad.width() / 2);
+			let ballCenter = ballLeft + (ball.width() / 2);
+			let colissionPoint = ballCenter - padCenter;
+
+			ballSpeedX = colissionPoint * 0.02;
+			ballDirectionX = ballSpeedX < 0 ? "-" : "+";
+			ballSpeedX = Math.abs(ballSpeedX);
+
+			ballDirectionY = ballDirection(ballDirectionY);
+			
+			lastPlayerCollisionInMs = +(new Date()); //Update last player collision
+		}
+		
+
 	}
+
+
 	// field collision check
+
 	if (ballTop < 0) {
-		ballDirectionY === '+' ? ballDirectionY = '-' : ballDirectionY = '+';
+		ballDirectionY = ballDirection(ballDirectionY);
 	} else if ( ballLeft < 0 || (ballLeft+ball.width() >= fieldWidth) ) {
-		ballDirectionX === '+' ? ballDirectionX = '-' : ballDirectionX = '+';
+		ballDirectionX = ballDirection(ballDirectionX);
 	}
+
+
 	// bricks collision check
 	var BreakException= {}; // to interupt array forEach lood if brick is hit
 	try {
@@ -196,6 +302,7 @@ function checkCollision(ball) {
 				done = true; // variable to interrupt loop
 				var i = window.bricks.indexOf(brick);
 				if (i > -1) window.bricks.splice(i, 1); // delete brick from an array
+
 				brick.kill();				
 			}
 			if (done) throw BreakException; // interrup array
@@ -215,18 +322,30 @@ function checkCollision(ball) {
             
 		} else {
 			// game over stuff
-			lifeLeft = 0;
-			setLifeText();
-			ball.remove();
-			$('#game-over').fadeIn(1000);
+			if (!gameEnds) {
+				gameEnds = true;
+				lifeLeft = 0;
+				setLifeText();
+				ball.remove();
+				let cookies = getCookies();
+				let consecutiveGameOvers = parseInt(cookies.consecutiveGameOvers || "0");
+				document.cookie = "consecutiveGameOvers=" + (consecutiveGameOvers + 1);
+
+				$('#game-over').fadeIn(1000);
+			}
+			
 		}
 	}
 
 	// check if palyer wins
 	if (window.bricks.length === 0) {
-		ball.remove();
-		$('#game-text').text('YOU WIN!')
-		$('#game-over').fadeIn(1000);
+		if (!gameEnds) {
+			gameEnds = true;
+			document.cookie = "consecutiveGameOvers=0";
+			ball.remove();
+			$('#game-text').text('YOU WIN!')
+			$('#game-over').fadeIn(1000);
+		}
 	}
 
 }

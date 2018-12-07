@@ -26,7 +26,7 @@
 
 	<div id="game-over">
         <div id="game-text">GAME OVER!</div>
-        <button id="continue">TRY AGAIN</button>		
+        <button id="continue" onClick="restartGame();">TRY AGAIN</button>		
 	</div>
 
     <div id="slower">

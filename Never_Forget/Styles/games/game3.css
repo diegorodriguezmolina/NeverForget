@@ -3,9 +3,9 @@ body {
 }
 
 #field {
-	background-image:url("../../assets/img/neri.png");
+	background-image:url("../../assets/img/neri2.png");
 	max-width: 1152px;
-	height: 843px;
+	height: 1152px;
 	margin: 0 auto;
 	position: relative;
 }
@@ -86,7 +86,9 @@ color: #b92929;
 
 .ball {
 	position: absolute;
-    background-image:url("../../assets/img/Lluis2.png");
-    background-repeat:no-repeat;
+    background-image:url("../../assets/img/mslug.gif");
+	background-repeat:no-repeat;
+	background-size:     cover;
+    background-position: center center;
 
 }

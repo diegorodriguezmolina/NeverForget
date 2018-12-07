@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Game2</title>
+<title>Dodge Game</title>
+    <!--STYLES-->
+    <link rel="stylesheet" href="/NeverForget/Never_Forget/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../Styles/games/game2.css">
+    
+    <!--GAME-->
+    <script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
+
+    <!--BOOTSTRAP-->
+    <script src="/NeverForget/Never_Forget/js/popper.min.js"></script>
+    <script src="/NeverForget/Never_Forget/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
-    <div></div>
+
+
+    
 </body>
 </html>

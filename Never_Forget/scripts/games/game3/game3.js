@@ -381,13 +381,14 @@ function checkCollision(ball) {
 	if (window.bricks.length === 0) {
 		if (!gameEnds) {
 			gameEnds = true;
+			
 			document.cookie = "consecutiveGameOvers=0";
-			ball.remove();
 			$('#game-text').text('YOU WIN!');
 			$('#game-over').fadeIn(1000);
 			$('#continue').text('Continue the adventure');
-			//cambiar HREF a siguiente pantalla
-			$('#continue').attr("href", "gameNextStep.php");
+			ball.remove();
+			//******************************************** */cambiar HREF a siguiente pantalla
+
 			
 		}
 	}

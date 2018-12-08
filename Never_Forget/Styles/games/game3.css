@@ -1,5 +1,6 @@
 body {
 	background-color: grey;
+	font-family: 'Special Elite', cursive;
 }
 
 #field {
@@ -16,6 +17,15 @@ body {
 	bottom: 0;
 	right: 0;
 	color: white;
+
+}
+
+#countdown {
+	padding-top:500px;
+	color:white;
+	text-align: center;
+	font: 60px monospace;
+
 }
 
 #game-over {
@@ -29,36 +39,31 @@ body {
 	height: 100%;
 	max-height: 100%;
 	background-color: black;
+	font: 60px monospace;
 }
-
-#slower {
-	z-index: 100;
-	display: none;
-	position: absolute;
-	left: 0;
-	top: 0;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-	max-height: 100%;
-}
-
 
 #game-text {
 	position: relative;
 	left: 0;
 	top: 40%;
-	font: 40px monospace;
 	z-index: 200;
 	color: #b92929;
-	font-weight: bold;
+	font: 30px monospace;
 }
 
 #continue {
-
+position: absolute;
 color: #b92929;
+text-align: center;
 
 }
+
+
+#dialog{
+	background-color: rgb(207, 214, 221);
+	font-family: 'Special Elite', cursive;
+}
+
 
 .brick {
     background-image:url("../../assets/img/roca.png");

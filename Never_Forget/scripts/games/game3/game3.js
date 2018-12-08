@@ -17,6 +17,7 @@ var lastPlayerCollisionInMs = +(new Date());
 
 //PLAYER VARIABLES
 var lifeLeft = 1;
+var counter = 4;
 
 //IMAGES
 var images = [	'url(../../assets/img/roca.png)', 
@@ -64,6 +65,7 @@ function Game() {
 	//if loses X times, easy mode with 1 column
 	if (consecutiveGameOvers>2) {
 		this.column = 1;
+		lifeLeft= 5;
 	}
 
 	//child creation
@@ -86,18 +88,65 @@ function Game() {
 	this.pad = new Pad(this.bricksPerRow);
 	this.ball = new Ball();
 
-	//ball (Lluis) starts to move after 1 second
+
+//dialog with game instructions
+$( "#dialog" ).dialog({
+	modal: true,
+	buttons: {
+			//when clicks OK, starts the countdown 
+			Ok: function() {
+			$( this ).dialog( "close" );
+		
+			//countdown to start the game
+			var intervalCount = setInterval(function() {
+			counter--;
+			setCounter();
+			
+
+			//change countdown to START and hide it
+			if (counter == 0) {
+				$( "#countdown" ).text('START!');
+				clearInterval(intervalCount);
+				//hide the countdown
+				hideText($( "#countdown" ));
+				//Lluis starts to move
+				startMove();				
+			}
+		}, 1000);			
+		}		  
+	}
+	});
+
+//ball (Lluis) starts to move after 2 second
+function startMove(){
 	setTimeout(function() {
 		ballInterval = setInterval(moveBall, 10);
 		isNewGame = false;
-	}, 1000)
+	}, 2000);
 	
+	}
+}
+
+//function to hide divs
+function hideText(text){
+
+	var intervalHide = setInterval(function() {
+		if (counter == 0) {
+			text.hide();
+			clearInterval(intervalHide);
+		}
+	}, 2000);
 }
 
 
 // show the lifes player has
 function setLifeText() {
 	$('#scores').text('Lifes left: ' + lifeLeft); //Modificamos el texto
+}
+
+//show the countdown
+function setCounter() {
+	$('#countdown').text(counter); //Modificamos el contador
 }
 
 // calculate duration of jquery animation based on pixel distance
@@ -117,27 +166,8 @@ function calcAnimDuration(x) {
 	}
 }
 
-/*
-//[Easier Mode after 1 min game]
 
-//After 1 min, the ball reduce its velocity
-setTimeout(function() {
-    if(lifeLeft>0){
-    changeBallInterval(10*2);
-    }
-}, 600000);
-
-//change the ms of the moveball function and shows the div text for a moment
-function changeBallInterval(ms) {
-    $('#slower').fadeIn(1000);
-    $('#slower').fadeOut(4000);
-	clearInterval(ballInterval);
-    ballInterval = setInterval(moveBall, ms);
-  
-}*/
-
-
-// bricks are here
+// bricks position
 function Brick(x, y) {
 
 	var field_width = parseInt($('#field').css('width')); // available field for bricks
@@ -292,7 +322,6 @@ function checkCollision(ball) {
 
 
 	// field collision check
-
 	if (ballTop < 0) {
 		ballDirectionY = ballDirection(ballDirectionY);
 	} else if ( ballLeft < 0 || (ballLeft+ball.width() >= fieldWidth) ) {
@@ -341,7 +370,6 @@ function checkCollision(ball) {
 				let cookies = getCookies();
 				let consecutiveGameOvers = parseInt(cookies.consecutiveGameOvers || "0");
 				document.cookie = "consecutiveGameOvers=" + (consecutiveGameOvers + 1);
-
 				$('#game-over').fadeIn(1000);
 			}
 			
@@ -354,8 +382,12 @@ function checkCollision(ball) {
 			gameEnds = true;
 			document.cookie = "consecutiveGameOvers=0";
 			ball.remove();
-			$('#game-text').text('YOU WIN!')
+			$('#game-text').text('YOU WIN!');
 			$('#game-over').fadeIn(1000);
+			$('#continue').text('Continue the adventure');
+			//cambiar HREF a siguiente pantalla
+			$('#continue').attr("href", "gameNextStep.php");
+			
 		}
 	}
 
@@ -377,7 +409,6 @@ function getCookies() {
 }
 
 // KEYPRESS OPTIONS
-
 //move right or left
 $(document).keydown(function(e) {
 

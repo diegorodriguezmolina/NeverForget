@@ -57,7 +57,7 @@
             <p id = indexText class="text-black">El bando nacionalista gana posiciones gracias a la ayuda de países afines</p>
             <p id = indexText class="text-black">Barcelona, capital de Catalunya,</p>
             <p id = indexText class="text-black">Resiste</p>
-            <button type="button" class="btn-lg btn-outline-danger regular-button mr-5 button" style="margin-left:80px" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">SING IN</button>
+            <button type="button" class="btn-lg btn-outline-danger regular-button mr-5 button" style="margin-left:80px" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">SIGNIN</button>
             <button type="button" class="btn-lg btn-outline-danger regular-button mr-5 button"  data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">LOGIN</button>
         </div>     
         <script type="text/javascript" src="../scripts/loginModal.js"></script>      

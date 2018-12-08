@@ -1,41 +1,60 @@
-#hero {
-  background: #ff0000;
-  width: 20px;
-  height: 20px;
-  position: absolute;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-#background {
-  background: #000000;
-  width: 500px;
-  height: 500px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+
+body {
+  height: 100vh;
+  display: flex;
+  background-image: url("../../assets/img/game2/game2_fondo.jpg");
+  background-position: center center;	  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
 }
-.laser {
-  background: #00ff00;
-  width: 2px;
-  height: 50px;
-  position: absolute;
+
+.memory-game {
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
 }
-.enemy {
-  background: #0000ff;
-  width: 35px;
-  height: 35px;
-  position: absolute;
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
 }
-#score {
-  color: #ffffff;
-  font-size: 18pt;
-  position: absolute;
-  left: 20px;
-  top: 20px;
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform .2s;
 }
-#gameover {
-  color: #ff0000;
-  font-size: 20px;
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
   position: absolute;
-  left: 160px;
-  top: 200px;
-  visibility: hidden;
+  border-radius: 5px;
+  background: #1C7CCC;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
 }

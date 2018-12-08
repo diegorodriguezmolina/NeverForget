@@ -12,9 +12,10 @@ body {
 
 #scores {
 	position: absolute;
-	font: 20px monospace;
+	font: 30px monospace;
 	bottom: 0;
 	right: 0;
+	color: white;
 }
 
 #game-over {
@@ -27,7 +28,7 @@ body {
 	width: 100%;
 	height: 100%;
 	max-height: 100%;
-	background-color: rgba(14, 11, 11, 0.9);
+	background-color: black;
 }
 
 #slower {
@@ -41,8 +42,6 @@ body {
 	height: 100%;
 	max-height: 100%;
 }
-
-
 
 
 #game-text {
@@ -88,7 +87,7 @@ color: #b92929;
 	position: absolute;
     background-image:url("../../assets/img/mslug.gif");
 	background-repeat:no-repeat;
-	background-size:     cover;
+	background-size: cover;
     background-position: center center;
 
 }

@@ -18,7 +18,7 @@ var lastPlayerCollisionInMs = +(new Date());
 //PLAYER VARIABLES
 var lifeLeft = 1;
 
-//OTHERS
+//IMAGES
 var images = [	'url(../../assets/img/roca.png)', 
 				'url(../../assets/img/skull.png)', 
 				'url(../../assets/img/rock2.png)',
@@ -31,15 +31,19 @@ var children = [
 				'url(../../assets/img/girl2.gif)',
 				'url(../../assets/img/girl3.gif)',
 				'url(../../assets/img/girl4.gif)'];
+
+//reload the game, function for the try again button				
 function restartGame() {
 	window.location.reload();
 }
 
 //Start the game when the page is load
 $(document).ready(function() { 
+
     window.game = new Game(); 
     //show text
-    setLifeText();
+	setLifeText();
+	
     //pad limitations, only move inside #field and axis X
     $('#pad').draggable({ axis: 'x', containment: '#field' }); 
 });
@@ -51,19 +55,25 @@ function Game() {
     
     //number of bricks 
 	this.column = 3;
+	this.bricksPerRow = 6;
+
+	//if the player lose, the counter inside cookies add 1
 	let cookies = getCookies();
 	let consecutiveGameOvers = parseInt(cookies.consecutiveGameOvers || "0");
+
+	//if loses X times, easy mode with 1 column
 	if (consecutiveGameOvers>2) {
 		this.column = 1;
 	}
-	this.bricksPerRow = 6;
 
+	//child creation
 	for (x = 0; x < this.bricksPerRow; x++) {
 		var brick = new Brick(x, 0);
 		window.bricks.push(brick);
 		brick.render(children, "child");
 	}
 
+	//other bricks creation
 	for (y = 1; y < this.column +1; y++) {
 		for (x = 0; x < this.bricksPerRow; x++) {
 			var brick = new Brick(x, y);
@@ -72,8 +82,11 @@ function Game() {
 		}
 	}
 
+	//pad creation
 	this.pad = new Pad(this.bricksPerRow);
 	this.ball = new Ball();
+
+	//ball (Lluis) starts to move after 1 second
 	setTimeout(function() {
 		ballInterval = setInterval(moveBall, 10);
 		isNewGame = false;
@@ -95,13 +108,16 @@ function calcAnimDuration(x) {
 	var padLeft = parseInt(window.pad.css('left')); //333
     
     if (x === 0) {
+
 		return (padLeft / padSpeed)
+
 	} else {
+
 		return ( (field_width-padWidth-padLeft) / padSpeed)
 	}
 }
 
-
+/*
 //[Easier Mode after 1 min game]
 
 //After 1 min, the ball reduce its velocity
@@ -118,7 +134,7 @@ function changeBallInterval(ms) {
 	clearInterval(ballInterval);
     ballInterval = setInterval(moveBall, ms);
   
-}
+}*/
 
 
 // bricks are here
@@ -157,15 +173,21 @@ function Brick(x, y) {
 	}
 
 	this.kill = function(cb) {
+		
 		let that = this;
-		if (this.brick.hasClass("child")) {
-			this.brick.animate({ "left": (($("#field").width() / 2) - this.brick.width() / 2) + "px", top: $("#field").height() *0.75 + "px"}, 1000, undefined, function() {
 
+		//if brick is a child
+		if (this.brick.hasClass("child")) {
+			//move to the door fading out and remove
+			this.brick.animate({ "left": (($("#field").width() / 2) - this.brick.width() / 2) + "px", top: $("#field").height() *0.75 + "px"}, 1000, undefined, function() {
+				//fadeOut and remove it after
 				that.brick.fadeOut(200, function() {
 					that.brick.remove();
 				});
 			} );
+		//other bricks
 		} else {
+			//fadeOut without moving and remove
 			this.brick.fadeOut(200, function() {
 				that.brick.remove();
 			});
@@ -174,7 +196,7 @@ function Brick(x, y) {
   	}
 }
 
-// player controlled pad here
+// Pad control
 function Pad(n) {
 	var field_width = parseInt($('#field').css('width'));
 	var fieldHeight = parseInt($('#field').css('height'));
@@ -189,7 +211,7 @@ function Pad(n) {
 	$('#field').append(window.pad);
 }
 
-// ball here
+// Ball config
 function Ball() {
 	var fieldWidth = parseInt($('#field').css('width'));
 	this.width = fieldWidth * 0.10;
@@ -204,7 +226,7 @@ function Ball() {
 	$('#field').append(window.ball);
 }
 
-// function to move ball
+// function to move ball + check collision
 function moveBall() {
 	var ball = window.ball;
 	ball.css('top', ballDirectionY+'='+ballSpeedY);
@@ -218,7 +240,7 @@ function moveBall() {
 	checkCollision(ball);
 }
 
-
+//Ball direction control options
 function ballDirection(direction){
 
 	if(direction === '+'){
@@ -233,16 +255,6 @@ function ballDirection(direction){
 	return direction;
 }
 
-function getCookies() {
-	let cookies = {};
-			
-	document.cookie.split(/;\s?/).forEach(function(c) {
-		let cookieKey = c.split("=")[0];
-		cookies[cookieKey] = c.split("=")[1];
-	})
-
-	return cookies;
-}
 
 // check collision of the ball with bricks
 function checkCollision(ball) {
@@ -276,7 +288,6 @@ function checkCollision(ball) {
 			lastPlayerCollisionInMs = +(new Date()); //Update last player collision
 		}
 		
-
 	}
 
 
@@ -337,7 +348,7 @@ function checkCollision(ball) {
 		}
 	}
 
-	// check if palyer wins
+	// check if player wins
 	if (window.bricks.length === 0) {
 		if (!gameEnds) {
 			gameEnds = true;
@@ -350,7 +361,20 @@ function checkCollision(ball) {
 
 }
 
+//return the cookies using a split
+function getCookies() {
+	let cookies = {};
+	
+	//slit to divide the cookies info
+	document.cookie.split(/;\s?/).forEach(function(c) {
+		//key at position 0
+		let cookieKey = c.split("=")[0];
+		//with the key add the value at position 1
+		cookies[cookieKey] = c.split("=")[1];
+	})
 
+	return cookies;
+}
 
 // KEYPRESS OPTIONS
 
@@ -361,8 +385,7 @@ $(document).keydown(function(e) {
 
 	case 37: //left arrow
 		e.preventDefault();
-		if (!padLeftPressed) window.pad.animate({
-            left: '0'}, 
+		if (!padLeftPressed) window.pad.animate({left: '0'}, 
             calcAnimDuration(0));
 		    padLeftPressed = true;
             break;
@@ -370,10 +393,9 @@ $(document).keydown(function(e) {
 	case 39: //right arrow
 		e.preventDefault();
 		var fieldWidth = parseInt(window.pad.css('width'));
-		var x = 1152 - fieldWidth;
+		var x = 1152 - fieldWidth; //max position
         
-        if (!padRightPressed) window.pad.animate({
-            left: x },
+        if (!padRightPressed) window.pad.animate({left: x },
             calcAnimDuration(1));
 		    padRightPressed = true;
 		    break;

@@ -278,7 +278,7 @@ function ballDirection(direction){
 
 		direction = '-';
 
-	}else{
+	} else {
 
 		direction = '+';
 	}
@@ -293,13 +293,14 @@ function checkCollision(ball) {
 	var fieldHeight = parseInt($('#field').css('height'));
 
 	var pad = window.pad;
+	//obtain the size of the pad 
 	var padTop = parseInt(pad.css('top'));
 	var padLeft = parseInt(pad.css('left'));
 
+	//obtain the size of the ball 
 	var ballTop = parseInt(ball.css('top'));
     var ballLeft = parseInt(ball.css('left'));
     
-
 	// player collision check
 	if (padTop <= (ballTop+ball.width()) && !( (padTop - 10) <= (ballTop+ball.height()/2) ) 
 	&& padLeft <= (ballLeft+ball.width()/4*3) && (padLeft + pad.width()) >= (ballLeft+ball.width()/4))
@@ -312,15 +313,14 @@ function checkCollision(ball) {
 
 			ballSpeedX = colissionPoint * 0.02;
 			ballDirectionX = ballSpeedX < 0 ? "-" : "+";
+
 			ballSpeedX = Math.abs(ballSpeedX);
 
 			ballDirectionY = ballDirection(ballDirectionY);
 			
 			lastPlayerCollisionInMs = +(new Date()); //Update last player collision
-		}
-		
+		}		
 	}
-
 
 	// field collision check
 	if (ballTop < 0) {
@@ -332,22 +332,25 @@ function checkCollision(ball) {
 
 	// bricks collision check
 	var BreakException= {}; // to interupt array forEach lood if brick is hit
+
 	try {
 		var done = false;
+
 		window.bricks.forEach(function(brick) {
 			var brickBottom = brick.top + brick.height;
 			var brickRight = brick.left + brick.width;
-			// if brick is hit destroy it and do some stuff
+
 			if ( brickBottom >= ballTop && brick.left < ballLeft+ball.width()/2 && brickRight > ballLeft+ball.width()/2 ) {
-				ballDirectionY === '+' ? ballDirectionY = '-' : ballDirectionY = '+';
+
+				ballDirection(ballDirectionY);
 				done = true; // variable to interrupt loop
 				var i = window.bricks.indexOf(brick);
 				if (i > -1) window.bricks.splice(i, 1); // delete brick from an array
-
 				brick.kill();				
 			}
 			if (done) throw BreakException; // interrup array
 		});
+
 	} catch(e) {
 		if (e!==BreakException) throw e;
 	}
@@ -386,12 +389,12 @@ function checkCollision(ball) {
 			$('#game-text').text('YOU WIN!');
 			$('#game-over').fadeIn(1000);
 			$('#continue').text('Continue the adventure');
+
 			//cambiar HREF a siguiente pantalla
 			$('#continue').attr("href", "gameNextStep.php");
 			
 		}
 	}
-
 }
 
 //return the cookies using a split

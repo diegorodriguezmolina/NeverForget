@@ -1,12 +1,14 @@
+ /* body {
+  background-image: url("../../assets/img/game2_fondo.jpg");
+  background-position: center center;	  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}  */
 
-#back {
-	background-color: white;
-	max-width: 800px;
-	height: 600px;
-    background-image: url("../../assets/img/game2_fondo.jpg"); 
-    background: no-repeat;
-	max-width: 1152px;
-	height: 843px;
-	margin: 0 auto;
-	position: relative;
+#character{
+  background:url("../../assets/img/lluisgame2.gif");
+  width:40px;
+  height:40px;
+  position:absolute;
 }

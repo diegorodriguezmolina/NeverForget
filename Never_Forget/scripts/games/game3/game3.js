@@ -38,6 +38,14 @@ function restartGame() {
 	window.location.reload();
 }
 
+//scape keydown - look for pause code
+$(window).keydown(function (e) {
+	if (e.keyCode === 27) {
+	  e.preventDefault()
+	  console.log('Escape pressed')
+	}
+  })
+
 //Start the game when the page is load
 $(document).ready(function() { 
 

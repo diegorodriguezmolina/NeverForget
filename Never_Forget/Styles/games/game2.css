@@ -1,14 +1,41 @@
- /* body {
-  background-image: url("../../assets/img/game2_fondo.jpg");
-  background-position: center center;	  
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}  */
-
-#character{
- background-color: orange;
-  width:40px;
-  height:40px;
-  position:absolute;
+#hero {
+  background: #ff0000;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+#background {
+  background: #000000;
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.laser {
+  background: #00ff00;
+  width: 2px;
+  height: 50px;
+  position: absolute;
+}
+.enemy {
+  background: #0000ff;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+}
+#score {
+  color: #ffffff;
+  font-size: 18pt;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+#gameover {
+  color: #ff0000;
+  font-size: 20px;
+  position: absolute;
+  left: 160px;
+  top: 200px;
+  visibility: hidden;
 }

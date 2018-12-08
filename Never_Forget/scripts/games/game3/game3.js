@@ -46,8 +46,13 @@ $(document).ready(function() {
 	setLifeText();
 	
     //pad limitations, only move inside #field and axis X
-    $('#pad').draggable({ axis: 'x', containment: '#field' }); 
+	$('#pad').draggable({ axis: 'x', containment: '#field' }); 
 });
+
+function playMusic() {
+	var audio = $("audio")[0];
+    audio.play();
+}
 
 
 // build everything and start the game loop
@@ -93,16 +98,14 @@ function Game() {
 //dialog with game instructions
 $( "#dialog" ).dialog({
 	modal: true,
-	buttons: {
-			//when clicks OK, starts the countdown 
-			Ok: function() {
-			$( this ).dialog( "close" );
-		
-			//countdown to start the game
-			var intervalCount = setInterval(function() {
+	resizable: false,
+	draggable: false,
+	close: function( event, ui ) {
+		playMusic();
+		//countdown to start the game
+		var intervalCount = setInterval(function() {
 			counter--;
 			setCounter();
-			
 
 			//change countdown to START and hide it
 			if (counter == 0) {
@@ -113,9 +116,16 @@ $( "#dialog" ).dialog({
 				//Lluis starts to move
 				startMove();				
 			}
-		}, 1000);			
-		}		  
-	}
+		}, 1000);
+	},
+	buttons: {
+			//when clicks OK, starts the countdown 
+			Ok: function() {
+				$( this ).dialog( "close" );
+			
+				
+			}		  
+		}
 	});
 
 //ball (Lluis) starts to move after 2 second
@@ -123,20 +133,16 @@ function startMove(){
 	setTimeout(function() {
 		ballInterval = setInterval(moveBall, 10);
 		isNewGame = false;
-	}, 2000);
+	}, 1000);
 	
 	}
 }
 
 //function to hide divs
 function hideText(text){
-
-	var intervalHide = setInterval(function() {
-		if (counter == 0) {
-			text.hide();
-			clearInterval(intervalHide);
-		}
-	}, 2000);
+	setTimeout(function() {
+		text.hide();
+	}, 1000);
 }
 
 

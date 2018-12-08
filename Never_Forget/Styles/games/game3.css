@@ -68,6 +68,11 @@ body {
 	font-family: 'Special Elite', cursive;
 }
 
+.ui-dialog-title {
+	font-family: 'Special Elite', cursive;
+	font-size: 150%;
+}
+
 
 .brick {
     background-image:url("../../assets/img/roca.png");

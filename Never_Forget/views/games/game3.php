@@ -24,7 +24,9 @@
 </head>
 
 <body>
-    
+    <audio loop>
+        <source src="../../assets/sound/game3_music.mp3" type="audio/mpeg">
+    </audio>
 
 	<div id="game-over">
         <div id="game-text">GAME OVER!</div>

@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
 }
 
 body {
@@ -13,7 +14,15 @@ body {
   background-attachment: fixed;
   background-size: cover;
   
+  
 }
+#container{
+color: red;
+display: flex;
+
+
+}
+
 
 .memory-game {
   width: 640px;
@@ -51,7 +60,7 @@ body {
   padding: 20px;
   position: absolute;
   border-radius: 5px;
-  background: white;
+  background: rgb(48, 47, 47);
   backface-visibility: hidden;
 }
 

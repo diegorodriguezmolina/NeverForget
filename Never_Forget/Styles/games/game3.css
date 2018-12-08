@@ -17,6 +17,7 @@ body {
 	bottom: 0;
 	right: 0;
 	color: white;
+	font-family: 'Special Elite', cursive;
 
 }
 
@@ -25,6 +26,7 @@ body {
 	color:white;
 	text-align: center;
 	font: 60px monospace;
+	font-family: 'Special Elite', cursive;
 
 }
 
@@ -39,23 +41,25 @@ body {
 	height: 100%;
 	max-height: 100%;
 	background-color: black;
-	font: 60px monospace;
+	opacity: 0.9;
 }
 
 #game-text {
-	position: relative;
-	left: 0;
-	top: 40%;
-	z-index: 200;
+	margin-top:400px;
+	margin-left:auto;
+	margin-right:auto;	
 	color: #b92929;
-	font: 30px monospace;
+	font-family: 'Special Elite', cursive;
+	font-size: 60px;
 }
 
 #continue {
-position: absolute;
-color: #b92929;
-text-align: center;
-
+	margin-left:auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top:200px;
+	font-family: 'Special Elite', cursive;
+	font-size: 60px;
 }
 
 

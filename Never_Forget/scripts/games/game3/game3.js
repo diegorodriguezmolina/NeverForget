@@ -89,6 +89,7 @@ function Game() {
 	this.ball = new Ball();
 
 
+
 //dialog with game instructions
 $( "#dialog" ).dialog({
 	modal: true,

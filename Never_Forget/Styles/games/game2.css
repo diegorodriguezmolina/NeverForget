@@ -7,7 +7,7 @@
 }  */
 
 #character{
-  background:url("../../assets/img/lluisgame2.gif");
+ background-color: orange;
   width:40px;
   height:40px;
   position:absolute;

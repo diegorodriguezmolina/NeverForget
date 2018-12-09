@@ -1,4 +1,8 @@
 
+document.addEventListener("DOMContentLoaded", function(){
+    shuffle();
+}, false);
+
 function swap(tile1, tile2){
     var aux = document.getElementById(tile1).className;
     console.log(aux); 
@@ -22,7 +26,7 @@ function shuffle(){
 
 function changeTile(row,column){
     var tile= document.getElementById("cell"+row+column);
-  
+    
     if (tile.className != "cell9"){
       
         if(column<3){
@@ -50,16 +54,18 @@ function changeTile(row,column){
     }
 }
 
-function checksolved(){
-    var solved= false;
-    for(var row=1; row<=3; row++){
-        for(var column=1;column<=3;column++){
-            for(var aux=1; aux<=9; aux++){
-                if(document.getElementById("cell"+row+column).id ==  ){
-                    
-                }
-            }
+//para saber si el juego se ha completado con exito mirare en cada div la class que tiene y si coincide con la que deberia de tener ya que lo unico que hace el puzzle es cambiar la clase de div en div.
 
-        }
-    }
-}
+// function checksolved(){
+//     var solved= false;
+//     for(var row=1; row<=3; row++){
+//         for(var column=1;column<=3;column++){
+//             for(var aux=1; aux<=9; aux++){
+//                 if(document.getElementById("cell"+row+column).id ==  ){
+
+//                 }
+//             }
+
+//         }
+//     }
+// }

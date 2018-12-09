@@ -8,7 +8,7 @@
 
 
 <?php startblock('principal') ?>
-
+    
     <div class="container mt-5">
         <div class="row">
             <div id="cell11" class="cell1" onclick="changeTile(1,1)"></div>
@@ -25,7 +25,6 @@
             <div id="cell32" class="cell8" onclick="changeTile(3,2)"></div>
             <div id="cell33" class="cell9" onclick="changeTile(3,3)"></div>
         </div>
-        <button type="button" onclick="shuffle()">SHUFFLE</button>
     </div>
     
 

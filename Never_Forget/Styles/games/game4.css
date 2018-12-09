@@ -1,0 +1,26 @@
+
+.cell1, .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9{
+    display: table-cell;
+    width: 333.33px;
+    height: 216.66px;
+    border: 1px solid white;
+    background: url(../../assets/img/refugi307.jpg); 
+    cursor: pointer;
+}
+.cellblank{
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    border: 1px solid white;
+    background: white;
+}
+
+.cell1 {background-position: left top;}
+.cell2 {background-position: center top;}
+.cell3 {background-position: right top;}
+.cell4 {background-position: left center;}
+.cell5 {background-position: center center;}
+.cell6 {background-position: right center;}
+.cell7 {background-position: left bottom;}
+.cell8 {background-position: center bottom;}
+.cell9 {background: white; cursor: default;} 

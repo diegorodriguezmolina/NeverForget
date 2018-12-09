@@ -2,7 +2,8 @@ html{
     font-size: 15px;
 }
 body{
-    background-image: url(../assets/img/background.jpg);
+    background-image: url(../assets/img/background.jpg); 
+
 }
 .colorSecundario{
     color: #ee2b47;

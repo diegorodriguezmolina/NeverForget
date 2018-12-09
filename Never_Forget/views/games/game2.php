@@ -35,20 +35,20 @@
       </div>
 
       <div class="memory-card" data-framework="helmet">
-        <img class="front-face" src="../../assets/img/game2/helmet.png" alt="Helmet" />
+        <img class="front-face" src="../../assets/img/game2/helmet.jpg" alt="Helmet" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
       <div class="memory-card" data-framework="helmet">
-        <img class="front-face" src="../../assets/img/game2/helmet.png" alt="Helmet" />
+        <img class="front-face" src="../../assets/img/game2/helmet.jpg" alt="Helmet" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
-      <div class="memory-card" data-framework="misil">
-        <img class="front-face" src="../../assets/img/game2/misil.jpg" alt="Misil" />
+      <div class="memory-card" data-framework="warship">
+        <img class="front-face" src="../../assets/img/game2/warship.jpg" alt="Warship" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="misil">
-        <img class="front-face" src="../../assets/img/game2/misil.jpg" alt="Misil" />
+      <div class="memory-card" data-framework="warship">
+        <img class="front-face" src="../../assets/img/game2/warship.jpg" alt="Warship" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
@@ -70,15 +70,16 @@
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
   </section>
-  
-  <button>RESTART</button>
+
+
 
   
   
 
 
-  <script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
+ 
 
+<script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
 
 
 </body>

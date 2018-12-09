@@ -5,7 +5,7 @@
 <title>Memory Game</title>
 
 <link rel="stylesheet" type="text/css" href="/NeverForget/Never_Forget/Styles/games/game2.css">
-
+<link rel="stylesheet" type="text/css" href="/NeverForget/Never_Forget/css/bootstrap.min.css">
 
 
 </head>
@@ -69,15 +69,15 @@
         <img class="front-face" src="../../assets/img/game2/tank.png" alt="Tank" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
+      
+      
   </section>
-
-
-
-  
-  
-
-
- 
+  <section>
+  <div class="button">
+    
+       <button type="button" onclick="resetBoard()" class="btn btn-danger">TRY AGAIN</button>
+      </div>
+</section>
 
 <script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
 

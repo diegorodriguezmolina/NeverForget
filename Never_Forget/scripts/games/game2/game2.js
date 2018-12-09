@@ -25,9 +25,16 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-  isMatch ? disableCards() : unflipCards();
+//is a match?
+if(firstCard.dataset.framework === secondCard.dataset.framework){
+  //YES, match!
+disableCards();
+}else{
+  //NO match!
+unflipCards();
+}
+
 }
 
 function disableCards() {
@@ -58,7 +65,7 @@ function resetBoard() {
     let randomPos = Math.floor(Math.random() * 12); // generar numero aleatorio entre 0 y 11 y assignar cada numero a una carta
     card.style.order = randomPos;
   });
-})(); //funcion entre parentesis para que sea invocada justo despues de su creacion
+})(); //funcion entre parentesis para que sea ejecutada justo despues de su definicion
 
 
 cards.forEach(card => card.addEventListener('click', flipCard));

@@ -1,9 +1,9 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   
-}
+} */
 
 body {
   height: 100vh;
@@ -17,9 +17,20 @@ body {
   
 }
 #container{
-color: red;
-display: flex;
+color: rgb(133, 7, 7);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+position: relative;
+/* margin-top:100px;
+margin-bottom: 100px;
+margin-left: 100px;
+margin-right: 100px; */
+}
 
+.button{
+ 
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 
 }
 

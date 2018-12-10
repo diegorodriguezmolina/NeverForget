@@ -1,15 +1,57 @@
 <?php
 
-
+function errorMessage($e){
+    if(!empty($e->errorInfo[1])){
+        switch ($e->errorInfo[1]){
+            case 1062:
+                $mensaje = "Registro duplicado";
+                break;
+            case 1451:
+                $mensaje = "Registro con elementos relacionados";
+                break;
+            case 123456:
+                $mensaje = "Registro con elementos relacionados";
+                break;
+            default:
+                $mensaje = $e->errorInfo[1] . ' - ' . $e->errorInfo[2];
+                break;
+        }
+    }
+    else{
+        switch ($e->getCode()) {
+            case 1044:
+                $mensaje = "Usuario y/o password incorrecto";
+                break;
+            case 1049:
+                $mensaje = "Base de datos desconectada";
+                break;
+            case 1044:
+                $mensaje = "No se encuentra el servidor";
+                break;
+            default:
+                $mensaje = $e->getCode() . ' - ' . $e->getMessage();
+                break;
+        }
+    }
+    return $mensaje;
+}
 
 function openBD(){
     $servername = "localhost";
-$username = "root";
-$password = "";
-    $conn = new PDO("mysql:host=$servername;dbname=hoteles_dwes;charset=utf8", $username, $password);
-    //control de excepciones
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $username = "root";
+    $password = "";
 
+     try {
+        $conn = new PDO("mysql:host=$servername;dbname=adventur3;cahrset=utf8", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //echo "Connected successfully"; 
+        }
+     catch(PDOException $e)
+        {
+         echo "Connection failed: " . $e->getMessage();
+        }    
+    
     return $conn;
 }
 
@@ -19,81 +61,88 @@ function closeBD(){
 
 }
 
-function errorCode($e){
-    if(!empty($e->errorInfo[1])){
-        switch ($e->errorInfo[1]) {
-            case '1062':
-                $mensaje = "Registro duplicado";
-                break;
-            
-            case '1451':
-                $mensaje = "Registro con elementos relacionados";
-                break;
-            
-            default:
-                # code...
-                break;
+function exeinsertUser($name, $email, $password, $repassword){
+    $role = 0;
+    try{
+        if($name == "" ){
+            throw new Exception('El campo "nombre" no puede estar vacio');
+        }
+        elseif( $email == ""){
+            throw new Exception('El campo "email" no puede estar vacio');
+        }
+        elseif ($password == "") {
+            throw new Exception('El campo "password" no puede estar vacio');
+        }
+        elseif ($repassword == "") {
+            throw new Exception('El campo "re password" no puede estar vacio');
         }
 
-    }
-    return $mensaje;
-}
-function insertarCiudad($id_ciudad, $nombre){
-    try{
+        if($password !== $repassword){
+            throw new Exception('Las contraseñas no coinciden');
+        }
         $conn = openBD();
-        $sentencia = $conn->prepare("INSERT INTO ciudades VALUES (:id_ciudad, :nombre)");
-    
-        $sentencia->bindParam(':id_ciudad', $id_ciudad);
-        $sentencia->bindParam(':nombre', $nombre);
-    
+
+        // prepare sql and bind parameters
+        $sentencia = $conn->prepare("INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)");
+        $sentencia->bindParam(':name', $name);
+        $sentencia->bindParam(':email', $email);
+        $sentencia->bindParam(':password', $password);
+        $sentencia->bindParam(':role', $role);
         $sentencia->execute();
-        $_SESSION['mensaje'] = "Ciudad introducida correctamente"; 
-    }catch(PDOException $e){
-        $_SESSION['error']= errorCode($e);
-        $ciudad['id_ciudad'] = $id_ciudad;
-        $ciudad['nombre'] = $nombre;
-        $_SESSION['ciudad'] = $ciudad;
+    
+    }
+    catch(PDOException $e){
+        $_SESSION['errorRegister'] = errorMessage($e);
+
+        $login['name'] = $name;
+        $login['email'] = $email;
+        $login['password'] = $password;
+        $login['repassword'] = $repassword;
+        $_SESSION['login'] = $login;
+    }
+    catch (Exception $e) {
+        $_SESSION['errorRegister'] = $e->getMessage();
+        
+        $login['name'] = $name;
+        $login['email'] = $email;
+        $login['password'] = $password;
+        $login['repassword'] = $repassword;
+        $_SESSION['login'] = $login;
     }
     
     $conn = closeBD();
-
+   
 }
 
-function verCiudades(){
-    $conn= openBD();
-    $sentencia = $conn->prepare("SELECT * FROM ciudades"); 
-    $sentencia->execute();
+function selectUsuarioByPassword($email, $password){
+    try{
+        if($email == "" ){
+            throw new Exception('El campo "e-mail" no puede estar vacio');
+        }
+        elseif( $password == ""){
+            throw new Exception('El campo "password" no puede estar vacio');
+        }
+        $conn = openBD();
 
-    $resultado = $sentencia -> fetchAll();
-    $conn = closeBD();
+        $sentencia = $conn->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
+        $sentencia->bindParam(':email', $email);
+        $sentencia->bindParam(':password', $password);
+        $sentencia->execute();
+        $result = $sentencia->fetch();
+        $result2 = $sentencia->rowCount();
 
-    return $resultado;
-}
-
-function verCiudadId($id){
-    $conn= openBD();
-    $sentencia = $conn->prepare("SELECT * FROM ciudades WHERE id_ciudad = $id"); 
-    $sentencia->execute();
-
-    $resultado = $sentencia -> fetchAll();
-    $conn = closeBD();
-
-    return $resultado[0];
-}
-function borrarCiudad($id){
-    $conn= openBD();
- 
-    $conn->exec("DELETE FROM ciudades WHERE id_ciudad= $id");
-
-    $conn = closeBD();
-}
-
-function modificarCiudad($id, $nombre){
-    $conn = openBD();
-
-    $sentencia = $conn->prepare("UPDATE ciudades SET nombre = '$nombre' WHERE id_ciudad = $id");
-    $sentencia->execute();
-
+        if($result2 == 0){
+            throw new Exception('Usuario o password incorrecto');
+        }
+        elseif($result2 == 1){
+        }       
+    }
+    catch(PDOException $e){
+        $_SESSION['error'] = errorMessage($e);
+    }
+    catch (Exception $e) {
+        $_SESSION['error'] = $e->getMessage();
+    }
     $conn = closeBD();
 }
 

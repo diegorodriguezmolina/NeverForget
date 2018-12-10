@@ -1,3 +1,9 @@
+<?php 
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+?>
+
+
 <?php
 
 function errorMessage($e){
@@ -37,12 +43,12 @@ function errorMessage($e){
 }
 
 function openBD(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $servername = "hostingmysql328.nominalia.com";
+    $username = "daw2a03";
+    $password = "Diesfrjox2";
 
      try {
-        $conn = new PDO("mysql:host=$servername;dbname=adventur3;cahrset=utf8", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=daw2a03;cahrset=utf8", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //echo "Connected successfully"; 

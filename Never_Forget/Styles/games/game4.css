@@ -1,18 +1,13 @@
 
-    .cell1, .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9{
+    .cell1, .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9, .Complete{
     display: table-cell;
-    width: 333.33px;
+    width: 29%;
     height: 216.66px;
+    /* min-height: 2em; */
     border: 1px solid white;
     background: url(../../assets/img/refugi307.jpg); 
     cursor: pointer;
-}
-.cellblank{
-    display: table-cell;
-    width: 120px;
-    height: 120px;
-    border: 1px solid white;
-    background: white;
+   
 }
 
 .cell1 {background-position: left top;}
@@ -24,3 +19,16 @@
 .cell7 {background-position: left bottom;}
 .cell8 {background-position: center bottom;}
 .cell9 {background: white; cursor: default;} 
+.Complete {background-position: right bottom;}
+
+.info{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    border-style: solid;
+    border-color: white;
+    height: 40px;
+    width: 20%;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+}

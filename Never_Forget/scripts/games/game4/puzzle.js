@@ -1,7 +1,16 @@
 
-document.addEventListener("DOMContentLoaded", function(){
-    shuffle();
-}, false);
+// document.addEventListener("DOMContentLoaded", function(){
+//     shuffle();
+//     var tiempo=setTimeout('saludo()',300000);
+//     finish();
+// }, false);
+
+var intentos=-9;
+n=0;
+window.setInterval(function(){
+    document.getElementById('tiempo').innerHTML = n;
+    n++;
+},1000);
 
 function swap(tile1, tile2){
     var aux = document.getElementById(tile1).className;
@@ -10,6 +19,14 @@ function swap(tile1, tile2){
     console.log(tile1);
     document.getElementById(tile2).className = aux;
     console.log(tile2);
+
+    if(checksolved()==true){
+        alert("Completado");
+        document.getElementById(cell33).className= "Complete";
+        console.log(document.getElementById(cell33).className);
+    }
+    contador();
+    
 }
 
 function shuffle(){
@@ -24,7 +41,9 @@ function shuffle(){
     }
 }
 
+
 function changeTile(row,column){
+
     var tile= document.getElementById("cell"+row+column);
     
     if (tile.className != "cell9"){
@@ -52,20 +71,45 @@ function changeTile(row,column){
             }
         }
     }
+    
+    document.getElementById('contador').innerHTML = intentos;
+    
+
+    finish();
+    
 }
 
-//para saber si el juego se ha completado con exito mirare en cada div la class que tiene y si coincide con la que deberia de tener ya que lo unico que hace el puzzle es cambiar la clase de div en div.
 
-// function checksolved(){
-//     var solved= false;
-//     for(var row=1; row<=3; row++){
-//         for(var column=1;column<=3;column++){
-//             for(var aux=1; aux<=9; aux++){
-//                 if(document.getElementById("cell"+row+column).id ==  ){
+function finish(){
+    if(intentos >20){
+        alert("fin");
+    }
+}
 
-//                 }
-//             }
+function saludo()
+{
+    alert("Se ha acabado el tiempo");
+}
 
-//         }
-//     }
-// }
+function checksolved(){
+    var contador=1;
+    var solved=true;
+    
+    for(var row=1; row<=3; row++){
+        for(var column=1;column<=3;column++){
+            
+                if(document.getElementById("cell"+row+column).className!="cell"+contador){
+                    solved=false;
+                }
+                contador++;
+        }
+    }
+    return solved;
+}
+
+function contador(){
+
+    intentos++;
+
+}
+

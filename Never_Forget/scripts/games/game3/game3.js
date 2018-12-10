@@ -20,18 +20,18 @@ var lifeLeft = 1;
 var counter = 4;
 
 //IMAGES
-var images = [	'url(../../assets/img/roca.png)', 
-				'url(../../assets/img/skull.png)', 
-				'url(../../assets/img/rock2.png)',
-				'url(../../assets/img/roca.png)',
-				'url(../../assets/img/rock2.png)',
-				'url(../../assets/img/roca.png)',];
+var images = [	'url(../../assets/img/game3_roca.png)', 
+				'url(../../assets/img/game3_skull.png)', 
+				'url(../../assets/img/game3_rock2.png)',
+				'url(../../assets/img/game3_roca.png)',
+				'url(../../assets/img/game3_rock2.png)',
+				'url(../../assets/img/game3_roca.png)',];
 
 var children = [
-				'url(../../assets/img/girl.gif)',
-				'url(../../assets/img/girl2.gif)',
-				'url(../../assets/img/girl3.gif)',
-				'url(../../assets/img/girl4.gif)'];
+				'url(../../assets/img/game3_girl.gif)',
+				'url(../../assets/img/game3_girl2.gif)',
+				'url(../../assets/img/game3_girl3.gif)',
+				'url(../../assets/img/game3_girl4.gif)'];
 
 //reload the game, function for the try again button				
 function restartGame() {

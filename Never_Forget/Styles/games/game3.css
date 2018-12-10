@@ -4,7 +4,7 @@ body {
 }
 
 #field {
-	background-image:url("../../assets/img/neri2.png");
+	background-image:url("../../assets/img/game3_neri2.png");
 	max-width: 1152px;
 	height: 1152px;
 	margin: 0 auto;
@@ -75,7 +75,7 @@ body {
 
 
 .brick {
-    background-image:url("../../assets/img/roca.png");
+    background-image:url("../../assets/img/game3_roca.png");
     position: absolute;
     background-repeat:no-repeat;
     background-size: 110px 100px;
@@ -85,7 +85,7 @@ body {
 }
 #pad {
 	position: absolute;
-    background-image:url("../../assets/img/vagon.png");
+    background-image:url("../../assets/img/game3_vagon.png");
     background-repeat:no-repeat;
     background-size: 200px 100px;
     background-position:top; 
@@ -99,7 +99,7 @@ body {
 
 .ball {
 	position: absolute;
-    background-image:url("../../assets/img/mslug.gif");
+    background-image:url("../../assets/img/game3_lluis.gif");
 	background-repeat:no-repeat;
 	background-size: cover;
     background-position: center center;

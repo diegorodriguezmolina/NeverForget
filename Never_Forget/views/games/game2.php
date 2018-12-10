@@ -6,9 +6,14 @@
 
 <link rel="stylesheet" type="text/css" href="/NeverForget/Never_Forget/Styles/games/game2.css">
 <link rel="stylesheet" type="text/css" href="/NeverForget/Never_Forget/css/bootstrap.min.css">
+
+<script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
+
 <?php endblock() ?>
 
 <?php startblock('principal') ?>
+
+
 
 <div class="container">
      <div class="center">
@@ -18,56 +23,56 @@
   
   <section class="memory-game">
 
-      <div class="memory-card" data-framework="bomb">
+      <div class="memory-card" data-images="bomb">
         <img class="front-face" src="../../assets/img/game2/bomb.jpg" alt="Bomb" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="bomb">
+      <div class="memory-card" data-images="bomb">
         <img class="front-face" src="../../assets/img/game2/bomb.jpg" alt="Bomb" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
-      <div class="memory-card" data-framework="flag">
+      <div class="memory-card" data-images="flag">
         <img class="front-face" src="../../assets/img/game2/flag.jpg" alt="Flag" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="flag">
+      <div class="memory-card" data-images="flag">
         <img class="front-face" src="../../assets/img/game2/flag.jpg" alt="Flag" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
-      <div class="memory-card" data-framework="helmet">
+      <div class="memory-card" data-images="helmet">
         <img class="front-face" src="../../assets/img/game2/helmet.jpg" alt="Helmet" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="helmet">
+      <div class="memory-card" data-images="helmet">
         <img class="front-face" src="../../assets/img/game2/helmet.jpg" alt="Helmet" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
-      <div class="memory-card" data-framework="warship">
+      <div class="memory-card" data-images="warship">
         <img class="front-face" src="../../assets/img/game2/warship.jpg" alt="Warship" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="warship">
+      <div class="memory-card" data-images="warship">
         <img class="front-face" src="../../assets/img/game2/warship.jpg" alt="Warship" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
-      <div class="memory-card" data-framework="plane">
+      <div class="memory-card" data-images="plane">
         <img class="front-face" src="../../assets/img/game2/plane.jpg" alt="Plane" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="plane">
+      <div class="memory-card" data-images="plane">
         <img class="front-face" src="../../assets/img/game2/plane.jpg" alt="Plane" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
 
-      <div class="memory-card" data-framework="tank">
+      <div class="memory-card" data-images="tank">
         <img class="front-face" src="../../assets/img/game2/tank.png" alt="Tank" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      <div class="memory-card" data-framework="tank">
+      <div class="memory-card" data-images="tank">
         <img class="front-face" src="../../assets/img/game2/tank.png" alt="Tank" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
@@ -90,11 +95,14 @@
         </button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Continue the Adventure</button>
+        <button type="button" class="btn btn-dark">Continue the Adventure</button>
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
+
+
+
+
 <?php endblock() ?>

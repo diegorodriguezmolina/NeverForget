@@ -4,7 +4,15 @@ var hasFlippedCard = false;
 var lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
 var firstCard, secondCard;
 var buttonTryAgain=document.getElementById("tryAgain");
-var count = 0;
+var count = 0; // Contador para controlar cuando todas las cartas estan descubiertas
+
+$(document).ready(function(){
+  window.game = new Game();
+});
+
+
+
+function Game(){
 
 function flipCard() {
   if (lockBoard) return;
@@ -29,7 +37,7 @@ function flipCard() {
 function checkForMatch() {
 
 //is a match?
-if(firstCard.dataset.framework === secondCard.dataset.framework){
+if(firstCard.dataset.images === secondCard.dataset.images){
   //YES, match!
   count++;
 disableCards();
@@ -45,10 +53,8 @@ if(count==6){
 
 }
 
-
-
 function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
+  firstCard.removeEventListener('click', flipCard);//Callback
   secondCard.removeEventListener('click', flipCard);
 
   resetBoard();
@@ -77,11 +83,11 @@ function resetBoard() {
   });
 })(); //funcion entre parentesis para que sea ejecutada justo despues de su definicion
 
-buttonTryAgain.onclick= function () {location.reload()};
+buttonTryAgain.onclick= function () {location.reload()}; // Funcion para que el botón vuelva a recargar la pagina (volver a jugar)
 
 function showMessage(){
 $('#done').modal();
 }
 
-
 cards.forEach(card => card.addEventListener('click', flipCard));
+}

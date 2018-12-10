@@ -16,16 +16,14 @@ h1{
 }
 
 
-
 .container{
+
 color:white;
 font-family: 'Special Elite', cursive;
-position: absolute;
+
 margin-top: 1%;
 
 }
-
-
 
 .button{
   margin-top: 1%;
@@ -36,6 +34,8 @@ margin-top: 1%;
   width: 540px;
   height: 540px;
   margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;

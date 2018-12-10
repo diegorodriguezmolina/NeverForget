@@ -1,48 +1,45 @@
-/* * {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   
-} */
+}
 
-body {
-  height: 100vh;
-  display: flex;
-  background-image: url("../../assets/img/game2/game2_fondo.jpg");
-  background-position: center center;	  
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  
-  
+
+.center{
+  align-content: center;
+  text-align: center;
 }
-#container{
-color: rgb(133, 7, 7);
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-position: relative;
-/* margin-top:100px;
-margin-bottom: 100px;
-margin-left: 100px;
-margin-right: 100px; */
+
+h1{
+  margin-bottom:2%;
 }
+
+
+
+.container{
+color:white;
+font-family: 'Special Elite', cursive;
+position: absolute;
+margin-top: 1%;
+
+}
+
+
 
 .button{
- 
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 1%;
 
 }
 
-
-.memory-game {
-  width: 640px;
-  height: 640px;
+ .memory-game {
+  width: 540px;
+  height: 540px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
-}
+} 
 
 .memory-card {
   width: calc(25% - 10px);
@@ -68,10 +65,10 @@ margin-right: 100px; */
 .back-face {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 2px;
   position: absolute;
   border-radius: 5px;
-  background: rgb(48, 47, 47);
+  background: rgb(146, 144, 144);
   backface-visibility: hidden;
 }
 

@@ -1,8 +1,9 @@
 const cards = document.querySelectorAll('.memory-card');
 
-let hasFlippedCard = false;
-let lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
-let firstCard, secondCard;
+var hasFlippedCard = false;
+var lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
+var firstCard, secondCard;
+var buttonTryAgain=document.getElementById("tryAgain");
 
 function flipCard() {
   if (lockBoard) return;
@@ -62,10 +63,12 @@ function resetBoard() {
 
 (function shuffle() {
   cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12); // generar numero aleatorio entre 0 y 11 y assignar cada numero a una carta
+    var randomPos = Math.floor(Math.random() * 12); // generar numero aleatorio entre 0 y 11 y assignar cada numero a una carta
     card.style.order = randomPos;
   });
 })(); //funcion entre parentesis para que sea ejecutada justo despues de su definicion
+
+buttonTryAgain.onclick= function () {location.reload()};
 
 
 cards.forEach(card => card.addEventListener('click', flipCard));

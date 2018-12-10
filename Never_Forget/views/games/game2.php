@@ -1,20 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>   
+<?php include "../../templates/masterGames.php" ?>
+
+<?php startblock('head') ?>  
   
 <title>Memory Game</title>
 
 <link rel="stylesheet" type="text/css" href="/NeverForget/Never_Forget/Styles/games/game2.css">
 <link rel="stylesheet" type="text/css" href="/NeverForget/Never_Forget/css/bootstrap.min.css">
+<?php endblock() ?>
 
+<?php startblock('principal') ?>
 
-</head>
-<body>
-<div id="container">
-  <h1>Memory Game</h1>
-  </div>
-
-   <section class="memory-game">
+<div class="container">
+     <div class="center">
+     <h1>Memory Game</h1>
+     </div>
+  
+  
+  <section class="memory-game">
 
       <div class="memory-card" data-framework="bomb">
         <img class="front-face" src="../../assets/img/game2/bomb.jpg" alt="Bomb" />
@@ -69,18 +71,39 @@
         <img class="front-face" src="../../assets/img/game2/tank.png" alt="Tank" />
         <img class="back-face" src="../../assets/img/game2/backcard.jpg" alt="backcard" />
       </div>
-      
       
   </section>
-  <section>
-  <div class="button">
-    
-       <button type="button" onclick="resetBoard()" class="btn btn-danger">TRY AGAIN</button>
+
+    <div class="center">
+    <button type="button" class="btn btn-danger button" id="tryAgain" >TRY AGAIN</button>
+   </div>
+
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-</section>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+
+
 
 <script type="text/javascript" src="../../scripts/games/game2/game2.js"></script>
-
-
-</body>
-</html>
+<?php endblock() ?>

@@ -1,6 +1,6 @@
 <?php 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/Never_Forget/librerias/ti.php";
-//require_once $_SERVER["DOCUMENT_ROOT"] . "NeverForget/Never_Forget/librerias/ti.php";
+//require_once $_SERVER["DOCUMENT_ROOT"] . "/Never_Forget/librerias/ti.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "NeverForget/Never_Forget/librerias/ti.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

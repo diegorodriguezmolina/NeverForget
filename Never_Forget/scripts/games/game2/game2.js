@@ -4,6 +4,7 @@ var hasFlippedCard = false;
 var lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
 var firstCard, secondCard;
 var buttonTryAgain=document.getElementById("tryAgain");
+var count = 0;
 
 function flipCard() {
   if (lockBoard) return;
@@ -30,13 +31,21 @@ function checkForMatch() {
 //is a match?
 if(firstCard.dataset.framework === secondCard.dataset.framework){
   //YES, match!
+  count++;
 disableCards();
+
 }else{
   //NO match!
 unflipCards();
 }
 
+if(count==6){
+  showMessage();
 }
+
+}
+
+
 
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
@@ -69,6 +78,10 @@ function resetBoard() {
 })(); //funcion entre parentesis para que sea ejecutada justo despues de su definicion
 
 buttonTryAgain.onclick= function () {location.reload()};
+
+function showMessage(){
+$('#done').modal();
+}
 
 
 cards.forEach(card => card.addEventListener('click', flipCard));

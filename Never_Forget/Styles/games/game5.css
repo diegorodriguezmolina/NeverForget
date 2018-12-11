@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .container{
+      margin-top: 1%;
+  }
+  h1.titulo {
+    margin: 6% auto 6% auto;
+    text-align: center;
+    color: white;
+  }
+  h1#msg-final {
+    text-align: center;
+    color: #ee2b47;
+    transition: all .5s ease;
+    transform: scale(0);
+    min-height: 50px;
+    margin-bottom: 0;
+    font-family: 'Special Elite', cursive;
+  }
+
+  #hueco-pista{
+      color: white;
+      font-family: 'Special Elite', cursive;
+  }
+  .zoom-in {
+    transform: scale(1) !important;
+  }
+  #acierto {
+    text-align: center;
+    min-height: 50px;
+    transform: scale(0);
+    
+  }
+  .acierto {
+    animation-name: zoomInOut;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    /*animation-iteration-count: 1;*/
+    /*animation-iteration-count: infinite;*/
+  }
+  .rojo {
+    color: red;
+  }
+  .verde {
+    color: green;
+  }
+  @keyframes zoomInOut {
+    0% { transform: scale(0); }
+    50% { transform: scale(1); }
+    70% { transform: scale(1); }
+    100% { transform: scale(0); }
+  }
+  h2.palabra {
+    margin: 0 auto 25px auto;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+  }
+  .flex-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px auto; 
+  }
+  .no-wrap {
+    flex-wrap: nowrap !important;
+  }
+  .col {
+    width: 50%;
+    text-align: center;
+  }
+  
+  
+  #turnos h3 {
+    margin: auto;
+    color: white;
+  }
+  h3 span {
+     color: black;
+  }
+
+  .letra{
+    margin: 1px;
+  }
+  /*.letra:disabled {
+    color:rgba(255, 0, 0, 0.5);
+  }*/
+  picture {
+    position: relative;
+  }
+  picture img {
+    position: absolute;
+    top: -203px;
+    left: -205px;
+    height: 225px;
+  }
+  #image5, #image4, #image3,
+  #image2, #image1, #image0 {
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  
+  /*Esta clase sirve para "mandar" sobre la propiedad 'opacity' que tienen los id's #imageX*/
+  .fade-in {
+    opacity: 1 !important; 
+  }
+  .encuadre {
+    border: 2px dashed crimson;
+    padding: 3px 2px 2px 6px;
+  }
+
+.btn-abc{
+    color:black;
+    background-color:#8d99a3;
+    border-color:#6c757d;
+    font-family: 'Special Elite', cursive;
+}
+.btn-abc:hover{
+    color:black;
+    background-color:#5a6268;
+    border-color:#545b62
+}
+.btn-abc.focus,.btn-abc:focus{
+    box-shadow:0 0 0 .2rem rgba(108,117,125,.5)
+}
+.btn-abc.disabled,.btn-abc:disabled{
+    color:black;
+    background-color:#6c757d;
+    border:black; 
+    border-color:black
+}
+.btn-abc:not(:disabled):not(.disabled)
+.active,.btn-abc:not(:disabled):not(.disabled):active,.show>
+.btn-abc.dropdown-toggle{
+    color:black;
+    background-color:#545b62;
+    border-color:#4e555b
+}
+.btn-abc:not(:disabled):not(.disabled).active:focus,.btn-abc:not(:disabled):not(.disabled):active:focus,.show>.btn-abc.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(108,117,125,.5)}
+  
+.btn-next{
+    color:white;
+    background-color:black;
+    border-color:black;
+    font-family: 'Special Elite', cursive;
+}
+.btn-next:hover{
+    color:white;
+    background-color:rgba(0, 0, 0, 0.815);
+    border-color:rgba(0, 0, 0, 0.815)
+}
+.btn-next.focus,.btn-next:focus{
+    box-shadow:0 0 0 .2rem rgba(108,117,125,.5)
+}
+.btn-next.disabled,.btn-abc:disabled{
+    color:white;
+    background-color:rgb(43, 43, 43);
+    border-color:rgb(43, 43, 43)
+}
+.btn-next:not(:disabled):not(.disabled)
+.active,.btn-next:not(:disabled):not(.disabled):active,.show>
+.btn-next.dropdown-toggle{
+    color:white;
+    background-color:black;
+    border-color:black
+}
+.btn-next:not(:disabled):not(.disabled).active:focus,.btn-next:not(:disabled):not(.disabled):active:focus,.show>.btn-abc.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(108,117,125,.5)}
+ 
+.btn-pista{
+    font-family: 'Special Elite', cursive;
+    color: white !important
+}
+
+#btnAyuda{
+    font-family: 'Special Elite', cursive;
+    color:black;
+    margin-right: 50px;
+    background-color: #8d99a3 !important;
+    /*border: 2px solid black;*/
+    float: left;
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+#btnAyuda:hover{
+    opacity: 0.5;
+}
+
+#modalAyuda{
+    position: absolute;
+    top: 10px;
+    right: auto;
+    bottom: 0;
+    left: 10px;
+    /*overflow: auto;
+    overflow-y: auto;*/
+    height: 300px;
+}
+
+.bg-modal-header{
+    background-color: #ee2b48d0
+}
+
+.bg-modal-body{
+    background-color: #5a6268d8
+}

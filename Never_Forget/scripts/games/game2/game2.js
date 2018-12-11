@@ -3,12 +3,11 @@ cards = document.querySelectorAll('.memory-card');
 var hasFlippedCard = false;
 var lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
 var firstCard, secondCard;
-var buttonTryAgain=document.getElementById("tryAgain");
+//var buttonTryAgain=document.getElementById('tryAgain');
 var count = 0; // Contador para controlar cuando todas las cartas estan descubiertas
 
-Game();
 
-function Game(){
+
 
 function flipCard() {
   if (lockBoard) return;
@@ -80,14 +79,20 @@ function resetBoard() {
 })(); //funcion entre parentesis para que sea ejecutada justo despues de su definicion
 
 
+cards.forEach(card => card.addEventListener('click', flipCard));
+
+
 
 function showMessage(){
 $('#done').modal();
 }
 
-cards.forEach(card => card.addEventListener('click', flipCard));
 
-buttonTryAgain.onclick= function () {
-  location.reload()}; // Funcion para que el botón vuelva a recargar la pagina (volver a jugar)
-}
+document.getElementById("tryAgain").onclick = function() {
+
+window.location.reload();
+
+};
+ //Funcion para que el botón vuelva a recargar la pagina (volver a jugar)
+
 

@@ -1,0 +1,107 @@
+body {
+	background-color: grey;
+	font-family: 'Special Elite', cursive;
+}
+
+#field {
+	background-image:url("../../assets/img/game3_neri2.png");
+	max-width: 1152px;
+	height: 1152px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#scores {
+	position: absolute;
+	font: 30px monospace;
+	bottom: 0;
+	right: 0;
+	color: white;
+	font-family: 'Special Elite', cursive;
+
+}
+
+#countdown {
+	padding-top:500px;
+	color:white;
+	text-align: center;
+	font: 90px monospace;
+	font-family: 'Special Elite', cursive;
+
+}
+
+#game-over {
+	z-index: 100;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+	background-color: black;
+	opacity: 0.9;
+}
+
+#game-text {
+	margin-top:400px;
+	margin-left:auto;
+	margin-right:auto;	
+	color: #b92929;
+	font-family: 'Special Elite', cursive;
+	font-size: 60px;
+}
+
+#continue {
+	margin-left:auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top:200px;
+	font-family: 'Special Elite', cursive;
+	font-size: 60px;
+}
+
+
+#dialog{
+	background-color: rgb(207, 214, 221);
+	font-family: 'Special Elite', cursive;
+}
+
+.ui-dialog-title {
+	font-family: 'Special Elite', cursive;
+	font-size: 150%;
+}
+
+
+.brick {
+    background-image:url("../../assets/img/game3_roca.png");
+    position: absolute;
+    background-repeat:no-repeat;
+    background-size: 110px 100px;
+    background-position: center; 
+
+	
+}
+#pad {
+	position: absolute;
+    background-image:url("../../assets/img/game3_vagon.png");
+    background-repeat:no-repeat;
+    background-size: 200px 100px;
+    background-position:top; 
+}
+#touch {
+	position: block;
+	height: 40px;
+	background-color:grey;
+	z-index: 9;
+}
+
+.ball {
+	position: absolute;
+    background-image:url("../../assets/img/game3_lluis.gif");
+	background-repeat:no-repeat;
+	background-size: cover;
+    background-position: center center;
+
+}

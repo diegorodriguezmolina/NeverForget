@@ -10,7 +10,6 @@
     <div class="container">
     
     <h1 class="titulo">Hangman game</h1>
-    <button class="btn btn-next" id="btnAyuda">i</button>
     
     <h1 id="msg-final">You are saved</h1>
     <h2 id="acierto"></h2>
@@ -28,6 +27,7 @@
     </div>
     <div class="flex-row" id="turnos">
         <div class="col">
+        <button onclick="mostrarModalAyuda()" class="btn btn-next" id="btnAyuda">?</button>
         <h3>Intentos restantes: <span id="intentos">6</span></h3>
         </div>
         <div class="col">
@@ -52,13 +52,13 @@
     <div class="modal" tabindex="-1" role="dialog" id="modalPista">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-warning">
+                <div class="modal-header bg-modal-header">
                     <h5 class="modal-title">Consejo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-modal-body">
                     
                 </div>
             </div>
@@ -66,26 +66,26 @@
     </div>
 
     <!--Modal de instrucciones-->
-    <div class="modal" tabindex="-1" role="dialog" id="modalInstrucciones">
+    <div class="modal" tabindex="-1" role="dialog" id="modalAyuda">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Juego del ahorcado</h5>
+                <div class="modal-header bg-modal-header">
+                    <h5 class="modal-title">Instructions</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-modal-body">
                     <p>- Cuando completes la palabra pasa a la siguiente.</p>
-                    <p>- Haz click sobre las letra para ir completando la palabra</p>
-                    <p>- Cuando completes la palabra pasa a la siguiente.</p>
+                    <p>- Haz click sobre las letras para ir completando la palabra.</p>
+                    <p>- Si estás bloqueado clica en Dame una pista.</p>
                 </div>
             </div>
         </div>
     </div>
     
     <script src="../../scripts/games/game5/ahorcado.js"></script>
-    <script src="../../scripts/games/game5/tiempo-pista.js"></script>
+    <!--<script src="../../scripts/games/game5/tiempo-pista.js"></script>-->
     
 <?php endblock() ?>
   

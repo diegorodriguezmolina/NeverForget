@@ -24,8 +24,10 @@ var numPalabra = checkCookie("numParaula");
 var btnPista = document.getElementById("pista");
 //Variable que indica los segundos transcurridos des de que ha cargado la pagina
 var segundos = 0;
-
+//Boleano para no volver amostrar el alert si ya se ha mostrado anteriormente
 var mostrado = false;
+
+
 
 ///////FUNCIONES///////
 
@@ -127,9 +129,18 @@ function pista() {
   btnPista.disabled = true;
 }
 
+//Muestra un modal al usuario si se detecta que va un poco perdido
 function mostrarModalPista(mensaje){
   $('#modalPista').modal();
   $('#modalPista').find('.modal-body').text(mensaje);
+}
+
+//Muestra un modal al usuario si clica al boton de ayuda. Se le mostraran las instrucciones del juego
+function mostrarModalAyuda(){
+  $('#modalAyuda').modal({
+    backdrop: false
+  });
+  //$('.modal-backdrop').removeClass("modal-backdrop"); 
 }
 
 // Compruba si ha finalizado

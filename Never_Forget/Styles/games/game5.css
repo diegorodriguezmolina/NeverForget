@@ -29,8 +29,9 @@
   }
   #acierto {
     text-align: center;
-    min-height: 24px;
+    min-height: 50px;
     transform: scale(0);
+    
   }
   .acierto {
     animation-name: zoomInOut;
@@ -175,13 +176,34 @@
 
 #btnAyuda{
     font-family: 'Special Elite', cursive;
-    color:white;
-    border-radius: 50%;
+    color:black;
     margin-right: 50px;
     background-color: #8d99a3 !important;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
+    float: left;
+    margin-left: 3%;
+    font-weight: bold;
 }
 
 #btnAyuda:hover{
     opacity: 0.5;
+}
+
+#modalAyuda{
+    position: absolute;
+    top: 10px;
+    right: auto;
+    bottom: 0;
+    left: 10px;
+    /*overflow: auto;
+    overflow-y: auto;*/
+    height: 300px;
+}
+
+.bg-modal-header{
+    background-color: #ee2b48d0
+}
+
+.bg-modal-body{
+    background-color: #5a6268d8
 }

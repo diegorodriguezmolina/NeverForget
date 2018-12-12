@@ -74,7 +74,7 @@ include "../templates/master.php" ?>
                             <div class="col-25">
                             </div>
                             <div class="col-75 pt-2">
-                            <img src="../assets/img/error2.png" alt="Error" type="img" style="float:left" >
+                            <img src="../assets/img/index_error.png" alt="Error" type="img" style="float:left" >
                             <?php require_once "./partials/mensajes.php"; ?>
                             </div>
                             <?php } ?> 
@@ -134,7 +134,7 @@ include "../templates/master.php" ?>
                             <div class="col-25">
                             </div>
                             <div class="col-75 pt-2">
-                            <img src="../assets/img/error2.png" alt="Error" type="img" style="float:left" >
+                            <img src="../assets/img/index_error.png" alt="Error" type="img" style="float:left" >
                             <?php require_once "./partials/mensajes.php"; ?>
                             </div>
                             <?php } ?> 

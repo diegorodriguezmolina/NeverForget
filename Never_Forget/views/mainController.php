@@ -9,11 +9,11 @@
         exeinsertUser($_POST['name'],$_POST['email'], $_POST['password'], $_POST['repassword']);
 
         if(isset($_SESSION['errorRegister'])){
-            header('Location: /Never_Forget/views/index.php');
+            header('Location: /NeverForget/Never_Forget/views/index.php');
             exit();
         }
         else{
-            header('Location: /Never_Forget/views/index.php');
+            header('Location: /NeverForget/Never_Forget/views/index.php');
             exit();
         }      
     }
@@ -22,11 +22,11 @@
         selectUsuarioByPassword($_POST['emailLogin'], $_POST['passwordLogin']);
 
         if(isset($_SESSION['error'])){
-            header('Location: /Never_Forget/views/index.php');
+            header('Location: /NeverForget/Never_Forget/views/index.php');
             exit();
         }
         else{
-            header('Location: /Never_Forget/views/index.php');
+            header('Location: /NeverForget/Never_Forget/views/userProgress.php');
             exit();
         }      
     }

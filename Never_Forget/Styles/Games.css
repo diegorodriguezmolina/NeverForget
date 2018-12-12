@@ -39,9 +39,16 @@ h3{
 #pHistoria{
     font-family: 'Special Elite', cursive;
     font-size: 1.5rem;
+    text-align: justify;
+    margin-right:10%;
 }
 
 #imgDifuminada{
     border: 2px solid #000;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
+}
+
+.modal{
+text-align: center;
+position:fixed;
 }

@@ -26,9 +26,9 @@
                             <p class="card-text"></p>
                             <div class="card-footer justify-content-center">
                                 <ul>
-                                    <li><a href="" target="_blank"><i class="fa fa-twitter iconAbout"></i></a></li>
-                                    <li><a href="" target="_blank"><i class="fa fa-linkedin iconAbout"></i></a></li>
-                                    <li><a href="" target="_blank"><i class="fa fa-instagram iconAbout"></i></a></li>    
+                                    <li><a href="https://twitter.com/retsebdn" target="_blank"><i class="fa fa-twitter iconAbout"></i></a></li>
+                                    <li><a href="https://es.linkedin.com/in/esther-galdeano" target="_blank"><i class="fa fa-linkedin iconAbout"></i></a></li>
+                                    <li><a href="https://www.instagram.com/retse_str/" target="_blank"><i class="fa fa-instagram iconAbout"></i></a></li>    
                                 </ul> 
                             </div>
                         </div>

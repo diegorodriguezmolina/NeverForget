@@ -48,6 +48,7 @@ h3{
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.8);
 }
 
-.modal-dialog {
-    width: 750px;
+.modal{
+text-align: center;
+position:fixed;
 }

@@ -1,13 +1,38 @@
-cards = document.querySelectorAll('.memory-card');
+//FUNCION CON LAS VARIABLES
+function inicialize(){
 
-var hasFlippedCard = false;
-var lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
-var firstCard, secondCard;
-//var buttonTryAgain=document.getElementById('tryAgain');
-var count = 0; // Contador para controlar cuando todas las cartas estan descubiertas
+cards = document.querySelectorAll('.memory-card'); // Devuelvo el primer elemento que coincide con ".memory.card"
 
+hasFlippedCard = false;
+lockBoard = false; // Evitar que se pueda clickar en una 3a carta antes que se den la vuelta las 2 primeras
+firstCard = null;
+secondCard= null;
 
+countCards = 0; // Contador para controlar cuando todas las cartas estan descubiertas
 
+ // Botón recarga la pagina (volver a jugar)
+document.getElementById("tryAgain").onclick = function() {
+
+window.location.reload();
+  
+  };
+
+//Botón recarga la pagina CUANDO USER SE QUEDA SIN TIEMPO
+document.getElementById("tryAgain2").onclick = function() {
+  
+window.location.reload();
+    
+    };
+
+}
+
+// FUNCION PRINCIPAL
+
+function game(){
+
+  countDown();
+
+  //FUNCION GIRAR CARTA
 
 function flipCard() {
   if (lockBoard) return;
@@ -29,12 +54,14 @@ function flipCard() {
   checkForMatch();
 }
 
+
+//Funcion para comparar si 1a y 2a carta son iguales
 function checkForMatch() {
 
 //is a match?
 if(firstCard.dataset.images === secondCard.dataset.images){
   //YES, match!
-  count++;
+  countCards++;
 disableCards();
 
 }else{
@@ -42,12 +69,14 @@ disableCards();
 unflipCards();
 }
 
-if(count==6){
+if(countCards==6){
   showMessage();
 }
 
 }
 
+
+//Cuano acierto dos cartas--> desactivo el evento click de las cartas y la opcion de darles la vuelta
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);//Callback
   secondCard.removeEventListener('click', flipCard);
@@ -55,6 +84,7 @@ function disableCards() {
   resetBoard();
 }
 
+//Si no coinciden--> les doy la vuelta
 function unflipCards() {
   lockBoard = true; //Si no hay match, hasta que la pareja no se vuelve a dar la vuelta, no dejo clickar a otra carta
 
@@ -63,20 +93,23 @@ function unflipCards() {
     secondCard.classList.remove('flip');
 
     resetBoard();
-  }, 1500);
+  }, 1500);//tiempo en darles la vuelta
 }
 
+//despues de cada par de clicks--> reseteo las variables
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+// Para mezclar orden imagenes--> generar numero aleatorio entre 0 y 11 y assignar cada numero a una carta-->assignar el numero cada vez Aleatoriamente
+function shuffle() {
   cards.forEach(card => {
-    var randomPos = Math.floor(Math.random() * 12); // generar numero aleatorio entre 0 y 11 y assignar cada numero a una carta
+    var randomPos = Math.floor(Math.random() * 12); 
     card.style.order = randomPos;
   });
-})(); //funcion entre parentesis para que sea ejecutada justo despues de su definicion
+};
+shuffle(); 
 
 
 cards.forEach(card => card.addEventListener('click', flipCard));
@@ -85,14 +118,28 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 function showMessage(){
 $('#done').modal();
+
 }
 
+//Cuenta Atràs
 
-document.getElementById("tryAgain").onclick = function() {
+function countDown(){
 
-window.location.reload();
+  var count=60;
+  var num = document.getElementById('number');
+  var interval = setInterval(function(){
+    count--;
+    num.innerHTML=count+'"';
+    if(count==0){
+      clearInterval(interval);
+      $('#clock').modal();
+    }
+    if(countCards==6){
+      clearInterval(interval);
+    }
+     document.getElementById("buttonStart").disabled=true;
 
-};
- //Funcion para que el botón vuelva a recargar la pagina (volver a jugar)
+  },1000);
 
-
+}
+}

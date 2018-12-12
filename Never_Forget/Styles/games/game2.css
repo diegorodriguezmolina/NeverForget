@@ -9,12 +9,25 @@
 .center{
   align-content: center;
   text-align: center;
+  
 }
 
 h1{
   margin-bottom:2%;
 }
 
+#number{
+  
+  margin-top: 50px;
+  
+}
+.counter{
+  position: absolute;
+  margin-left: 15%;
+  margin-right: 10%;
+  margin-top: 17%;
+
+}
 
 .container{
 
@@ -30,9 +43,13 @@ margin-top: 1%;
 
 }
 
+#buttonStart{
+  float:right;
+}
+
  .memory-game {
-  width: 540px;
-  height: 540px;
+  width: 500px;
+  height: 500px;
   margin: auto;
   margin-left: auto;
   margin-right: auto;

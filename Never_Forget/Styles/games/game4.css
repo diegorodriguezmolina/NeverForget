@@ -1,13 +1,108 @@
+/* MOVIL */
+@media screen and (max-width: 812px) {
+    .cell1, .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9, .Complete{
+        display: table-cell;
+        width: 100px; 
+        height: 66.66px;
+        /* min-height: 2em; */
+        border: 1px solid white; 
+        background: url(../../assets/img/REFUGI.jpg);
+        background-size: 300px 200px; 
+        cursor: pointer;
+    }
+    #puzzle{
+        z-index: -3;
+        position: absolute;
+        top: 20%;
+        left: 14%;
+    }
+    #win{
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 38%;
+        z-index: 1000;
+    }
+    .info{
+        border-radius: 25px;
+        border-style: solid;
+        border-color: white;
+        width: 28%;
+        margin-top: 5px;
+        text-align: center;
+        
+        font-weight: bold;
+    }
+    #winContinue{
+        display: none;
+        position: absolute;
+        border-radius: 25px;
+        border-style: solid;
+        border-color: white;
+        width: 50%;
+        top: 50%;
+        left: 38%;
+        z-index: 1000;
+    }
+}
+/* ORDENADOR */
+@media screen and (min-width: 813px) {
 
     .cell1, .cell2, .cell3, .cell4, .cell5, .cell6, .cell7, .cell8, .cell9, .Complete{
-    display: table-cell;
-    width: 29%;
-    height: 216.66px;
-    /* min-height: 2em; */
-    border: 1px solid white;
-    background: url(../../assets/img/refugi307.jpg); 
-    cursor: pointer;
-   
+        display: table-cell;
+        width: 333.33px; 
+        height: 200px;
+        /* min-height: 2em; */
+        border: 1px solid white; 
+        background: url(../../assets/img/REFUGI.jpg);
+        background-size: 1000px 600px; 
+        cursor: pointer;
+    }
+    #puzzle{
+        z-index: -3;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+    }
+    #win{
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 38%;
+        z-index: 1000;
+    }
+    .info{
+    
+        border-radius: 25px;
+        border-style: solid;
+        border-color: white;
+        height: 40px;
+        width: 10%;
+        margin-top: 5px;
+        text-align: center;
+        font-size: 23px;
+        font-weight: bold;
+    }
+    #winContinue{
+        background: transparent;
+        display: none;
+        position: absolute;
+        border-radius: 25px;
+        border-style: solid;
+        border-color: white;
+        width: 40%;
+        top: 70%;
+        left: 30%;
+        z-index: 1000;
+        outline:none;
+    }
+    #winContinue:hover{
+        cursor: pointer;
+        background-color: black;
+        text: white;
+        border-color: transparent;
+       
+    }
 }
 
 .cell1 {background-position: left top;}
@@ -21,14 +116,7 @@
 .cell9 {background: white; cursor: default;} 
 .Complete {background-position: right bottom;}
 
-.info{
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 25px;
-    border-style: solid;
-    border-color: white;
-    height: 40px;
-    width: 20%;
-    text-align: center;
-    font-size: 23px;
-    font-weight: bold;
-}
+
+
+
+

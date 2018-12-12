@@ -1,13 +1,13 @@
 
-// document.addEventListener("DOMContentLoaded", function(){
-//     shuffle();
-//     var tiempo=setTimeout('saludo()',300000);
-//     finish();
-// }, false);
+//  document.addEventListener("DOMContentLoaded", function(){
+//      shuffle();
+//      var tiempo=setTimeout('saludo()',300000);
+//      finish();
+//  }, false);
 
 var intentos=-9;
 n=0;
-window.setInterval(function(){
+var tiempo = window.setInterval(function(){
     document.getElementById('tiempo').innerHTML = n;
     n++;
 },1000);
@@ -21,9 +21,22 @@ function swap(tile1, tile2){
     console.log(tile2);
 
     if(checksolved()==true){
-        alert("Completado");
-        document.getElementById(cell33).className= "Complete";
-        console.log(document.getElementById(cell33).className);
+        
+        document.getElementById("cell33").className= "Complete";
+        //clearInterval('tiempo'); NO FUNCIONA!!
+        document.getElementById("puzzle").style.transition= ".5s ease-in-out";
+        for(var row=1; row<=3; row++){
+            for(var column=1; column<=3; column++){
+                document.getElementById("cell"+row+column).style.border= "none";
+                document.getElementById("cell"+row+column).style.filter= "blur(2px)";
+            }
+        }
+      
+        document.getElementById("puzzle").style.transform= "scale(1.2)";
+        
+        document.getElementById("win").style.display= "block";
+        document.getElementById("winContinue").style.display= "block";
+     
     }
     contador();
     

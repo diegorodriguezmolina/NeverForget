@@ -1,19 +1,19 @@
 <?php 
-require_once $_SERVER["DOCUMENT_ROOT"] . "/Never_Forget/librerias/ti.php";
-//require_once $_SERVER["DOCUMENT_ROOT"] . "NeverForget/Never_Forget/librerias/ti.php";
+require_once $_SERVER["DOCUMENT_ROOT"] . "/NeverForget/Never_Forget/librerias/ti.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <title>
+       
+    </title>
     <link rel="stylesheet" href="../css/bootstrap.css">
-    <!--<link rel="stylesheet" href="../styles/STemplate.css">-->
+    <link rel="stylesheet" href="../styles/STemplate.css">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
-
     <?php startblock('head') ?>
     <?php endblock() ?>
 
@@ -42,8 +42,8 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/Never_Forget/librerias/ti.php";
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        
                         <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="#">Progress</a>
                     </div>
                 </div>
             </div>

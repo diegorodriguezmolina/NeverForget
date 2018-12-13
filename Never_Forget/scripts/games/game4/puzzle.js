@@ -1,18 +1,19 @@
 
-// document.addEventListener("DOMContentLoaded", function(){
-//     shuffle();
-//     var tiempo=setTimeout('help()',5000);
-    
-// }, false);
+document.addEventListener("DOMContentLoaded", function(){
+     shuffle();
+     setTimeout('help()',5000);
+
+}, false);
 
 var intentos=0
-
-n=0;
+var acabado=false;
+segundos=1;
 var tiempo = window.setInterval(function(){
-    tiempo = document.getElementById('tiempo').innerHTML = n;
-    n++;
+    document.getElementById('tiempo').innerHTML = segundos+' s';
+    segundos++;
 },1000);
 
+//Cambia una ficha por otra, llama a la función checksolved.
 function swap(tile1, tile2){
     var aux = document.getElementById(tile1).className;
     console.log(aux); 
@@ -22,6 +23,7 @@ function swap(tile1, tile2){
     console.log(tile2);
 
     if(checksolved()){
+        acabado=true;
         if(intentos>1){
             solved();
         }
@@ -30,6 +32,7 @@ function swap(tile1, tile2){
     
 }
 
+//Mezcla todas las fichas.
 function shuffle(){
 
     for(var row=1; row<=3; row++){
@@ -43,7 +46,7 @@ function shuffle(){
     intentos=0;
 }
 
-
+//Comprueba que ficha hay que cambiar y llama a la funcion swap para que la cambie.
 function changeTile(row,column){
 
     var tile= document.getElementById("cell"+row+column);
@@ -100,7 +103,7 @@ function changeTile(row,column){
     
     document.getElementById('contador').innerHTML = intentos;
     
-    if(intentos == 200){
+    if(intentos == 2){
         solved();
     }
     
@@ -122,10 +125,13 @@ function changeTile(row,column){
 
 // }
 
+
 function help(){
     document.getElementById("help").style.display= "block";
+    document.getElementById("abandonar").style.display= "block";
 }
 
+//Comprueba si el puzzle esta resuelto.
 function checksolved(){
     var contador=1;
     var solved=true;
@@ -148,21 +154,27 @@ function contador(){
 
 }
 
+//Puzzle resuelto.
 function solved() {
-    
-    document.getElementById("cell33").className= "Complete";
-    // clearInterval('tiempo'); !!NO FUNCIONA
-    document.getElementById("puzzle").style.transition= ".5s ease-in-out";
-    for(var row=1; row<=3; row++){
-        for(var column=1; column<=3; column++){
-            document.getElementById("cell"+row+column).style.border= "none";
-            document.getElementById("cell"+row+column).style.filter= "blur(2px)";
-        }
+    if(acabado==true){
+        document.getElementById("win").innerHTML="Well done!";
+    }else{
+        document.getElementById("win").innerHTML="Don't worry, <br> we finish it";
+       
     }
     
-    document.getElementById("puzzle").style.transform= "scale(1.2)";
-    
-    document.getElementById("win").style.display= "block";
-    document.getElementById("winContinue").style.display= "block";
+    document.getElementById("cell33").className= "Complete";
+        clearInterval(tiempo); 
+        
+        document.getElementById("puzzle").style.transition= ".5s ease-in-out";
+        for(var row=1; row<=3; row++){
+            for(var column=1; column<=3; column++){
+                document.getElementById("cell"+row+column).style.border= "none";
+                document.getElementById("cell"+row+column).style.filter= "blur(2px)";
+            }
+        }
+        document.getElementById("puzzle").style.transform= "scale(1.2)";
+        document.getElementById("win").style.display= "block";
+        document.getElementById("winContinue").style.display= "block";
 }
 

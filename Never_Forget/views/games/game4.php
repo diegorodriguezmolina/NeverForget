@@ -12,9 +12,9 @@
 <?php startblock('principal') ?>
   
             <div id="puzzle"> 
-                <h1 class="text-white" id="win">FELICIDADES</h1>
+                <h1 class="text-white" id="win"></h1>
                 <button id="winContinue">
-                    <h1 class="text-white">Continuar la aventura</h1>
+                    <h1 class="text-white">Continue the adventure</h1>
                 </button>
                 <div class="row">
                     <div id="cell11" class="cell1" onclick="changeTile(1,1)"></div>
@@ -35,20 +35,22 @@
             </div> 
 
             
-                <!-- <div>
-                    <img class="help" src="../../assets/img/REFUGI.jpg" alt="">
-                </div> -->
-    -->
-                <div class="helps">
-                    <div class="option">
-                        <p class="text-white ml-2">MOVIMIENTOS</p>
-                        <div id="contador" class=" text-white float-left mt-2 info"></div>
-                    </div>
-                    <div class="option">
-                        <p class="text-white ml-2">TIEMPO</p>
-                        <div id="tiempo" class="float-left text-white  mt-2 info"></div>
-                    </div>
+                
+            <img class="help" id="help" src="../../assets/img/REFUGI.jpg" alt="">
+            
+               
+
+            <div class="helps">
+                <div class="option">
+                    <p class="text-white ml-2">MOVES</p>
+                    <div id="contador" class=" text-white float-left mt-1 info"></div>
                 </div>
+                <div class="option">
+                    <p class="text-white ml-2">TIME</p>
+                    <div id="tiempo" class="float-left text-white  mt-1 info"></div>
+                </div>
+                <button class="btn btn-alert" id="abandonar" type="button" onClick="solved()">Leave</button>
+            </div>
      
             
 

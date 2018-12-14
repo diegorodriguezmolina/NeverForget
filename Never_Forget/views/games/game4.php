@@ -34,13 +34,8 @@
                 </div>
             </div> 
 
-            
-                
-            <img class="help" id="help" src="../../assets/img/REFUGI.jpg" alt="">
-            
-               
-
             <div class="helps">
+                <img class="help" id="help" src="../../assets/img/REFUGI.jpg" alt="">
                 <div class="option">
                     <p class="text-white ml-2">MOVES</p>
                     <div id="contador" class=" text-white float-left mt-1 info"></div>
